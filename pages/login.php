@@ -138,7 +138,7 @@ else	$count_data = '<b>'. $num .'</b>';
 ?>
 <style>
 	html {
-		height: 100%;
+		min-height: 100vh;
 		width: 100%;
 		background: #000 url(images/space.jpg) no-repeat center center / cover;
 	}
