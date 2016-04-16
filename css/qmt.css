@@ -83,7 +83,7 @@ th {
 .menu {
 	padding-top: 8px;
 	padding-bottom: 20px;
-	background: #222326;
+	background: rgba(0,0,0,.55);
 }
 .menu ul {
 	margin: 0;
