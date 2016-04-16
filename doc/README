@@ -1,0 +1,1202 @@
+QM Promisance
+$Id: README 1985 2014-10-01 16:33:41Z quietust $
+
+------------
+Introduction
+------------
+Promisance is an online turn-based strategy game written in PHP and
+utilizing an SQL database.
+
+Promisance has a great deal of history behind it. The initial versions
+were written long ago by Paul C. "Blackhawk" Purgett, being largely
+based on Swirve's "Earth: 2025" but featuring significantly faster
+paced gameplay. By early 2001, special customized versions of the game
+had been produced by EZClan and Nuitari. In mid 2001, after some
+disputes with EZClan's administrators regarding release of the game's
+latest source code following several suggested bugfixes, QMT
+Productions was founded and work began on their own version of
+Promisance.
+
+In October 2001, QM Promisance 3.0 was released to the public, largely
+based on EZClan Promisance 2.62, under the GNU General Public License.
+Main improvements over the EZClan code included adding functions to
+replace copy/pasted or directly include()'d code, reduced database
+bandwidth usage, and overall code cleanup to ease modification. QM
+Promisance subsequently became the dominant version of Promisance,
+spawning numerous derivative versions, to the point that Blackhawk
+himself used it as the basis for his own Promisance 4.0 release.
+
+QM Promisance 3.0 was written when PHP was still a new language to its
+developers, and PHP itself was not yet fully mature; as such, it relied
+on environment options (such as register_globals) and coding practices
+(such as concatenating input values directly into SQL queries) which
+are seen today as insecure.
+
+QM Promisance 4.0 was another complete rewrite, this time following
+more strict coding standards to ensure greater compatibility with
+various hosting environments and future versions of PHP, as well as
+adding features which were not feasible to implement in the original
+codebase.
+
+
+---------------
+Version History
+---------------
+4.81 (2014/10/01)
+* Attempting to login with a nonexistent username will no longer
+  display PHP Notice messages.
+* Periodic bonus points based on networth are properly granted again
+* Script files no longer include URLs in their headers, which will make
+  future patches significantly smaller
+
+
+4.8 (2014/09/01)
+* Allow users prompted for validation to view the Mailbox as well as
+  send private messages to Administrators
+* Enhance language pack functionality to permit procedural construction
+  of duration strings (such as "1 day, 14 hours, 32 minutes, 1 second")
+* Limit how often empires can request that their validation code be
+  resent, defaulting to 1 hour
+* Fix a bug which could permit an empire to receive multiple sets of
+  bonus turns in a single day
+* Add general listing of active effects to Magic page, replacing old
+  messages for active spell shields and time gates and making certain
+  effects visible only to Moderators and Administrators
+* Reduce power of Embezzle spell to what it was originally
+* Allow Clan forum threads to be set as Sticky or Locked when initially
+  creating them instead of requiring them to be edited afterwards
+* Update Empire Status to include some additional information
+* Change message credits, aid credits, and bonus turns timers from
+  separate databsae columns into empire effects
+* Add a "Modify Empire" page to allow Administrators to make arbitrary
+  changes to various empires
+* Update Graveyard to display score values
+* Fix turn taking to properly update networth during processing
+* Allow Empire Search result limit to be customized to a maximum of 100
+* Allow permission entries to be added in bulk
+* Update Event Log to include separate columns for user ID, empire ID,
+  and clan ID for improved filtering
+* Allow individual columns on Event Log page to be hidden
+* Allow Moderators to view the Event Log
+* Use PHPass (http://www.openwall.com/phpass/) for password storage
+* Prevent high tax rates from dropping population down to zero
+* Strip non-breaking spaces from form inputs
+* Reorganize empire cleanup logic for better extensibility
+* Allow emergency loans during final week, but at a lower limit
+* Adjust session to happen early enough that input numbers are parsed
+  according to the user's configured language
+* Fix shared clan defense to actually work correctly
+* Fix bug with magic power to round wizard count from zero to 1 instead
+  of the empire's size in acres
+* Prevent dead, disabled, or vacationed empires from receiving periodic
+  bonus points based on their networth
+* Update "Clear Validated" function to generate a new validation code
+  for the empire in question
+* Prevent disabled or vacationed empires from claiming bonus turns
+* Update empire cleanup to preserve sent messages with a special marker
+* Prevent users from sending private messages to unlinked empires
+* Various other code optimizations and fixes
+
+
+4.7 (2012/08/01)
+* Fix a serious bug in the new entity locking code which resulted in
+  locks not being properly acquired during turns updates (and sometimes
+  resulting in duplicate turn updates); as a result of this fix, empire
+  and clan ID numbers no longer restart at 1 during round reset
+* Add "fixids.php" script which updates all existing round history data
+  to no longer reuse empire/clan IDs
+* Add user account "watch" flag for marking problematic users across
+  multiple rounds
+* Update Empire Admin page to display both empire flags and user flags
+* Update Empire Admin page to disallow sending validation codes to
+  unlinked empires
+* Add new configuration option "CLAN_VIEW_AID" which makes the Clan
+  Management page display a log of all recent aid sent between members
+* Various other code optimizations and fixes
+
+
+4.6 (2011/06/01)
+* Eliminate all reliance on the PHP setting "short_open_tags"
+* Fix display bug with custom timestamp formats containing HTML special
+  characters
+* Add brand new database entity locking code, hopefully improving
+  performance and stability; as a result, the "admin/locks" page has
+  been deleted, and MySQL databases must now use InnoDB
+* Fix missing display of "signup closed" reminder when empire creation
+  has been disallowed
+* Add a link to the Game Guide on the Login page
+* Fix several errors in Guide pages
+* Update the [url] and [email] BBcode tags to strip leading and
+  trailing whitespace
+* Fix Clan Management page to properly allow the clan homepage and logo
+  URLs to be blanked
+* Fix pattern matching problem on Permissions page when banning IP
+  addresses with the syntax 'x.y.*.*' or 'x.*.*.*'
+* Various other code optimizations and fixes
+
+
+4.5 (2011/04/01)
+* Require all page loads with significant side effects be submitted via
+  HTTP POST
+* Restrict additional entity locking to only happen during HTTP POST
+  submissions
+* Enable support for SQLite, though only for educational purposes
+* Split "Manage Empire" into 2 pages - one for empire options, and one
+  for account options
+* Move Clan Management page into same subdirectory as the 2 above pages
+* Update side navigation menu to be dynamically generated as a set of
+  nested unordered lists, and move list formatting CSS into existing
+  stylesheets
+* Change configurable styles to be identified by name instead of number
+* Alter signup page to properly report if user account creation was
+  successful but empire creation failed
+* Fix language pack support function langfile() to work correctly,
+  correcting a problem with handling untranslated guide pages
+* Add language-specific default timestamp format string
+* Add "Return to Contents" link to guide pages, remove corresponding
+  link from guide page header text
+* Update permissions management to allow editing existing entries
+  without losing creation date and access statistics
+* Make QM_PDO an abstract class and make subclasses for each database
+  system supported
+* Move all entity locking behavior into database drivers
+* Change PostgreSQL (and SQLite) to use older database locking behavior
+  for improved performance
+* Add confirmation checkbox to "Clear" button on game event log viewer
+* Reduce entity locking timeout from 30 seconds to 10 seconds
+* Permit turns script to timeout on world locking after 15 seconds, but
+  only if being invoked during page loads
+* Change graveyard disclose to always be enabled when using an empire
+  marked for Administration
+* Fix turn logging to display both date and time for the current turn
+  period, and correctly display TURN_ABORT messages when flushing
+* Various other code optimizations and fixes
+
+
+4.4 (2010/10/01)
+* Add configuration option CLAN_LATE_JOIN to disallow empires from
+  joining existing clans during the cooldown period before the end of
+  each round
+* Update messages inbox to include checkboxes for each message, a
+  "mark/unmark all" option, and a button to delete all marked messages
+* Add "copy to" buttons to Military, Foreign Aid, Private Market, and
+  Public Market pages to allow players to quickly fill in certain
+  editboxes with the maximum permitted values
+* Change clan shared defense to no longer limit how many units can be
+  provided by each individual ally; a limit is still applied to the
+  total amount of defense that can be provided by all allies combined
+* Add configuration option VALIDATE_REQUIRE to specify whether or not
+  players are required to validate their empires in order to continue
+  playing the game
+* Add configuration option VALIDATE_ALLOW to specify whether or not
+  players are able to validate their own empires and whether or not
+  validation emails are actually sent - when disabled, only moderators
+  and administrators can validate empires
+* Update "create empire" option on Empire Administration page to send a
+  validation email if necessary
+* Fix display of idle times in User and Empire Administration pages
+  when the idle time is longer than 1 year
+* Fix lockup bug when encountering an error condition while attempting
+  to delete a clan forum post
+* Add extra checks to prom_empire::save() to ensure that the empire is
+  initialized and locked and to only save effect data if it has
+  actually been loaded
+* Update clan disband logic to automatically cancel all pending
+  invitations
+* Fix display of clan invitation cancellation news messages to use
+  "warning" color
+* Fix Personal Notes to properly escape special HTML characters
+* Rewrite turn giving code to keep track of when turns were last given
+  and be able to properly "catch up" after downtime
+* Add new configuration option TURNS_CRONTAB - when set to FALSE,
+  causes turns to be given out during page loads instead of by a
+  scheduled job
+* Add new configuration option TURNS_CRONLOG - when enabled, log
+  entries for turns given during page loads will be stored in a new
+  "turnlog" database table and be displayed (and deleted) upon invoking
+  turns.php
+* Add new configuration options TURNS_OFFSET_HOURLY and
+  TURNS_OFFSET_DAILY to configure exactly when hourly and daily
+  processing occurs
+* Add new world variables "turns_next", "turns_next_hourly", and
+  "turns_next_daily" to keep track of when the next turns processing
+  needs to be done
+* Allow turns to be scheduled at intervals not divisible by 60, best
+  used in non-crontab mode
+* Only mark players as being Online once the round has actually begun
+* Add "check" function for world variables to ensure that all necessary
+  world variables (rather than only round_time_begin) have been created
+  before the game will be allowed to run
+* Update "worldvars.php" utility script to add "adjust" command for
+  easily increasing or decreasing numeric variables
+* Fix temporary clan invitations to properly expire after the
+  configured duration instead of immediately
+* Change lang_isset() to check against all installed language packs
+  rather than only the selected language, default language, and base
+  language
+* Change label() function to permit literal strings in addition to
+  language string IDs
+* Fix World Bank page to only prefill available funds for loan
+  repayment when the empire does not have sufficient funds to repay the
+  loan in full
+* Remove prom_user::date(), and update prom_user::customdate() to
+  accept custom formats
+* Various other code optimizations and fixes
+
+
+4.3 (2009/11/01)
+* Integrate various database shortcut functions directly into a
+  subclass of PHP's PDO class
+* Add tracking of database queries performed per page load
+* Automatically disable empires if they fail to save to the database
+* Modify race and era bonus definitions to be whole numbers centered at
+  0 rather than fractions centered at 1, and store bonuses and
+  penalties consistently as positive and negative numbers respectively
+* Restructure race and era modifiers to be fetched through a single
+  function, also adding the ability for effects to provide modifiers;
+  as a side effect, bonuses are now combined by addition rather than by
+  multiplication
+* Rewrite empire size bonus calculation function to use a mathematical
+  formula rather than several discrete points
+* Reorder entries in Finances section of Empire Status
+* Add new event type for foreign aid shipments sent to clanmates
+* Remove new player protection during cooldown period
+* Define new "permanent" effect type, currently not used
+* Allow usage of iterators on all classes based on prom_entity
+* Add global style and script data blocks to all pages
+* Output "<?xml ...?>" tags when sending pages as application/xhtml+xml
+* Add configuration option DEBUG_FOOTER to display time elapsed,
+  memory usage, and database queries at the bottom of every page
+* Fix formatting of HTTP Content-type header when displaying compact
+  pages
+* Explicitly specify cookie path when creating sessions
+* Add configuration option DEFAULT_DATEFORMAT to specify default
+  date/time format during empire creation (rather than relying on the
+  database to prepopulate it)
+* Update signup logic to allow specifying a language during account
+  creation
+* Add configuration option TURNS_UNSTORE to specify how many turns
+  should be released from storage each time turns are given
+* Fix incorrect message display and invalid XHTML when users are
+  notified that they may leave vacation
+* Add new database lock type LOCK_SCRIPT for command line scripts
+* Update checkbox() function to allow specifying an "id" attribute
+* Fix generation of pagination links when there are no results
+* Update in-game error logging code to allow sending messages to
+  the moderator mailbox
+* Add functions gauss_rand() and gauss_intrand() to allow generation of
+  random values that follow a normal distribution (that is,
+  concentrated around the mean)
+* Update "empire" database fields "e_peasants", "e_trpwiz", and
+  "e_runes" to be of type bigint
+* Create new "util/" folder for storage of command line scripts, and
+  move checklang.php into said folder
+* Update "user" database table to separately track the number of rounds
+  in which an empire survived until the end, and calculate average rank
+  to only include survived rounds
+* Add command line script "fixranks.php" to determine successful plays
+  and recalculate average rank accordingly
+* Update "user" database table to add "u_comment" field, viewable and
+  editable from User Administration page
+* Fix clan news event text for kicking another member to display empire
+  names in the correct order
+* Make user account numbers clickable from the Empire Administration
+  page
+* Update Empire Administration page to allow resending an empire's
+  validation code
+* Update Database Lock and Market management pages to add "Toggle All"
+  links in appropriate locations
+* Fix duplicate display of "Lock Date" column on Database Lock
+  management page
+* Change Lottery to accumulate money from Public Market commissions
+* Prevent empires from joining a clan immediately after it has been
+  disbanded
+* Fix clan news entries added during leadership transfer
+* Fix sort links on "Clan Members" listings within History
+* Add error logging for login failures
+* Update Polymorph code to determine unit, building, and resource
+  losses using gauss_rand()
+* Exclude "Crystal Ball" spell events from News Search results
+* Fix display of magic spell events in News Search
+* Fix cost bonus calculation for private market buy code
+* Change Magic User Fight to only give points during successful attacks
+  and to incur a point penalty during defended attacks
+* Fix Magic User Fight to properly give points when killing the target
+* Fix Embezzle to record proper News entry during failure to cast
+* Update turns script to automatically end the round when there is only
+  one surviving empire
+* Add a command line script "worldvars.php" for adding, modifying, and
+  removing world variables
+* Fix typo in code for recording history which would result in failure
+  if an empire was dead but not moved to the Graveyard
+* Add option to Market Administration page to permit returning every
+  item to the seller rather than only a limited percentage
+* Prevent players from purchasing lottery tickets if the next drawing
+  is scheduled to happen after the end of the round
+* Various other code optimization, fixes, and documentation updates
+
+
+4.2 (2009/05/01)
+* Display the user's email address when signing up or requesting to
+  resend the validation code
+* Add several missing strings to language pack and remove several
+  duplicates
+* Add language functions to check if a value matches a string in any
+  language pack and to locate a file within any available language pack
+* Allow users to specify a custom date/time format
+* Update setup.php to create the database tables rather than merely
+  attempt to empty them out
+* Add provisional support for SQLite; disabled due to a bug in the PDO
+  driver
+* Add utility script "checklang.php" to analyze the completeness of all
+  installed language packs
+* Rewrite session handling code to use PHP's own session support. As a
+  side effect, this allows the same user account to log in from
+  multiple systems/browsers at once
+* Store sort/page settings for Administrator User/Empire/Market/Log
+  pages in session
+* Add filters to Event Log viewer
+* Add configuration option BASE_LANGUAGE to allow using an incomplete
+  language pack as default
+* Reorganize code for page headers and footers
+* Fix display of negative amounts of money
+* Change IN_TURNS constant to be used in addition to IN_GAME rather
+  than instead of it
+* Move common lookup tables to includes/misc.php function lookup()
+* Remove error_reporting() override in index.php and suppress display
+  of notices and warnings.
+* Update Player Statistics to display notices if an empire is
+  participating in the current round and whether or not the empire is
+  still alive
+* Fix turns.php to display elapsed time when aborting due to an error
+* Various other code optimizations and fixes
+
+
+4.1 (2009/04/01)
+* Allow users to specify a reason when deleting their empires
+* Allow clan leaders to view the detailed Empire Status of all other
+  clan members, controlled by configuration
+* Mark empires as being Online more consistently (so sitting idle for
+  2 turn updates won't leave an empire marked as offline)
+* Fix issues with deleting and undeleting empires from Empire Admin
+  page
+* Fix Clan Admin page to include normal clan members as well as those
+  holding special ranks
+* Automatically log users out after 2 hours of inactivity
+* Add link to Administrator email on Signup page under Support section
+* Update Signup page to display "From" address for validation emails
+  so that users can whitelist it if necessary
+* When signups are closed, display "Signups Closed" in place of the
+  Signup link on the login page instead of simply hiding the link
+* Update Graveyard to display administrator-deleted empires as having
+  been "Executed" instead of "Killed"
+* Fix "Create Empire" button on Empire Admin page
+* Disallow targetting oneself when sending Aid, casting spells, or
+  launching an attack
+* Allow clan leaders to Invite empires to join their clan without
+  having to tell them the password, either one-time (within a
+  configurable number of hours) or permanently
+* Fix Empire Search to work correctly when invoked from Clan Stats page
+* Fix broken query under Round History when viewing Clan details
+* Fix a Signup issue where creating a new User account but failing to
+  specify correct Empire details would not save the user account
+* Fix display of net income when Cashing
+* Fix Public Market to properly delay arrival of recently added goods
+* Add support for using a PostgreSQL database to store game data
+* Add configuration options to restrict creation of User accounts and
+  Empires in order to simplify setting up Invitational games
+* Alter passive war tax to exclude wars declared by other clans
+* Allow user accounts to be marked as Closed to distinguish abandoned
+  accounts from those belonging to cheaters
+* Allow Empires to be flagged as Silenced, disallowing them from
+  sending or receiving private messages from anyone other than an
+  Administrator or Moderator
+* Allow Empires to be flagged as Logged, recording all of their actions
+  in the Administrative Event Log
+* When an empire is deleted during the round and moved to the
+  Graveyard, display the name (and link to statistics) of the User
+  account that controlled it if enabled in configuration
+* Add a Clan Forum link to the side menu when part of a clan
+* Allow vacation to be disabled within configuration
+* Give all empires a Notes section on the main page for keeping track
+  of day to day activities
+* Add check to Build page to automatically stop building if the empire
+  runs out of money part of the way through
+* When taking turns, automatically withdraw excess savings beyond the
+  maximum balance rather than simply truncating the balance
+* Optimize several pages to reduce memory usage, particularly those
+  involving news reports
+* Fix dropdown lists and radio button groups to prevent them from
+  selecting a disabled entry by default
+* Improve error logging in Turns script
+* Update Player Statistics to indicate if a user account has been
+  closed or disabled
+* Add a more detailed introduction to the Signup page to describe the
+  goal of the game to new players
+* When modifying empires on Empire Admin page, deselect all commands
+  if the previous operation was successful
+* Display idle time for user accounts on User Admin page
+* Fix Clan page to display proper labels for wars
+* During empire cleanup, allow clan leadership to be transferred to a
+  dead or disabled empire if no living empire exists to accept it
+* If two clans, allied or at war with one another, are disbanded at the
+  same time, do not send news entries about terminated relations
+* Simplify logging from turns script to reduce overall length
+* Various code optimizations and fixes
+
+
+4.0 (2009/01/01)
+* Complete rewrite for increased reliability and security
+* Arrange game code into subdirectories for better organization
+* Add lots of configuration options for fine-tuning gameplay
+* Separate user accounts and empires into distinct entities - as a
+  result, usernames can now be reused indefinitely, and the game can
+  also be configured to allow multiple empires to be controlled by a
+  single user account
+* Add framework for consistently reading, locking, and updating user
+  accounts, empires, and clans without conflicts
+* Add support for world variables, values which are global to all
+  created empires; currently used for lottery variables and for round
+  start/stop times
+* Unify Standard and Clanless codebases, add configuration options to
+  distinguish between them
+* Update build/demolish code to alter buildings on a per-turn basis
+  rather than all at once
+* Automatically group similarly priced units in the Public Market when
+  purchasing
+* Make Clan relations stateful - alliances require a handshake to
+  establish, and wars require a handshake to cease
+* Improve messaging between empires - add inbox+outbox, individually
+  track whether each message has been read
+* Add proper Report functionality for messages, and a Moderator Mailbox
+  to which reports are delivered and readable by all administrators
+  and moderators
+* Add built-in forums for each clan, supporting marking threads as
+  sticky or locked, using a dedicated forum thread for clan news
+* Add an event log for all clan activity, viewable by privileged clan
+  members
+* Add framework for timed or turn-based effects on empires
+* Improve system for Magic - allow dynamic spell turn costs, allow
+  spells to be cast on friendly empires
+* Improve administrator controls
+* Add built-in event log for tracking all page errors, optionally also
+  tracks all in-game activity
+* Expand permission system to allow email address bans, enforced during
+  account signup
+* Expand permission system to support IPv6 bans and exceptions
+* Add built-in storage of round history, revealing associations between
+  user accounts and past played empires
+* Allow history to be recorded and rounds to be restarted from directly
+  within the game
+* Add support for multiple language packs
+* Numerous other fixes and improvements
+
+
+3.31 (2008/02/25)
+* Fix some bugs in magic/military size limit checks
+
+
+3.3 (2007/11/26)
++++ Overall
+* Change login cookie to store session cookie instead of password
+* Increase maximum savings and loan sizes
+* Change building/demolition to take turns before saving empire
+* Update cash/farm/explore code to offer condensed output
+* Fix default configuration options for database names to be lowercase
+* Enhance configuration file to automatically start/stop round based
+  on specific times
+* Add profanity checker to private message system
+* Make "credits" page viewable while not logged in
+* Don't allow empires to drop themselves below 1000 land
+* Add user-specific (but not configurable) timezone settings
+* Prevent networth from becoming negative
+* When saving empires, make sure land and building counts add up
+* When taking turns, take emergency loans when running out of money
+* Automatically return goods from the market after a configured time
+* Adjust defense provided by towers
+* Distinguish between Administrators and Moderators
+* Change page layout to keep side menu visible when scrolling down
+* Allow polymorphing for free if no turns have been used yet
+* Admins and Moderators get unlimited message credits
+* Add Permissions table, allow banning users by IP address ranges
+* Don't allow Administrators to trade on the public market
+* Reorganize Empire Search page
+* Display distinct messages when spells are blocked by a Spell Shield
+* Reduce land gained from Magic User Fight
+* Change how lottery ticket prices scale to empire size
+* Allow changing password before the round begins
+* Various bugfixes
+* Various cleanup
+
++++ Standard
+* Disallow joining clans while under new player protection
+* Prevent joining/making new clans immediately after leaving an old one
+* Don't allow creating clans during the last week
+* Update clan management to more smoothly allow changing special ranks
+* Add passive war tax for each clan an empire is at war with
+* Add delay between changing ally/war slots in a clan
+* Prevent dropping land immediately after attacking an empire
+
++++ Clanless
+* Remove foreign aid
+* Reduce how many points are given when casting certain spells
+
+
+3.2 (2002/06/06)
++++ Overall
+* Remove default advert loaded from the QMT server, don't display ads
+  if none are configured
+* Prevent Administrators from sending aid
+* Add special messages for trying to interact with Administrators
+* Fix bank code to prevent repaying or withdrawing negative amounts
+* Add BBcode support to private messages
+* Adjust default configuration
+* Rename existing theme to QM, add new ones for EZClan and Nuitari
+* Change account deletion to record why it was deleted
+* Rename various database field names to better indicate function
+* Display copyright footer on all pages, not just those in-game
+* Make guide available from outside of game
+* Reorganize page header
+* Allow users on vacation to choose when to return
+* Add Graveyard page, listing all dead empires
+* In mailbox, add separator between new and old messages
+* If an empire deletes itself, still grant kill credit if it is
+  "killed" by somebody else within 30 minutes
+* Fix "Advance" spell not preventing going beyond the Future
+* Add "reset" SQL script to reset the game for a new round
+* Various bugfixes
+* Various cleanup
+
++++ Standard
+* Add distinct news messages for each special clan rank
+* Add BBcode support to Clan MOTD
+
++++ Clanless
+* Change score tracking to vary point bonuses based on empire size
+  differences, don't automatically recalculate anymore
+
+
+3.1 (2002/01/07)
++++ Overall
+* Clean up various forms to not rely on pressing the Submit button
+* Add configurable industry output
+* Add configurable base jackpot
+* Add user-configurable stylesheets
+* Change counter on login page to exclude dead and deleted empires
+* When running out of food/cash when taking turns, say what ran out
+* In score lists, display administrators in their own special color
+* Expand game guide
+* Add "View Empire Communications" admin page
+* When displaying spells to cast, filter by type rather than by number
+* Adjust spell costs to scale upward with empire size
+* Add spell "Cornucopia", just like "Tree of Gold" except it makes food
+* Don't allow casting spells when health is too low
+* Reduce health when casting spells
+* Allow reading existing messages when out of credits
+* Change battle logic to exclude tower defense when killing troops
+* Require towers to be inhabited by footmen to provide defense
+* Change news report to list spells by name
+* Add "Support" section to signup page
+* Change "destroy structures" spell to destroy a percentage of target's
+  structures rather than exactly 15 of each.
+* Remember last jackpot value
+* In User Admin, add a button to set multi+disabled at the same time
+* Various bugfixes
+* Various cleanup
+
++++ Standard
+* Update clans, add assistant leader and 2 ministers of foreign affairs
+* Add membership limit to clans
+* Reorganize clan management page to handle special positions
+* Make 'clanstats' viewable in-game, use 'gameranks' for out of game
+* Add "Clan Contacts" page
+* Add limit on ally defense from each ally
+
++++ Clanless
+* Add score counter for empires, based on kills and attack statistics
+* Remove unneeded code leftover from Standard
+
+
+3.0 (2001/10/14)
+* Initial release, based on a rewrite of EZClan Promisance 2.62
+
+
+------------
+Installation
+------------
+See the INSTALL document for system requirements and installation
+instructions.
+
+Note that although QM Promisance supports running with a PostgreSQL
+database, it is not recommended for hosting high traffic games. If your
+web hosting environment has both MySQL and PostgreSQL databases
+available, you are strongly encouraged to use MySQL.
+
+
+-------------
+Configuration
+-------------
+QM Promisance is designed to be customizable to the needs of
+various communities. To that end, many configuration options are
+available in the "config.php" file.
+
+DB_* (TYPE, SOCK, HOST, PORT, USER, PASS, NAME) and TABLE_PREFIX
+- These options tell QM Promisance where to find its database. If you
+  do not have the luxury of having multiple databases on a web hosting
+  account, you can define a table prefix to attach to all table names.
+  Either SOCK or both HOST and PORT must be specified.
+
+GAME_VERSION, GAME_TITLE
+- The name of the game and its version number. The version number
+  should remain unchanged so you can more easily keep track of updates.
+
+URL_BASE
+- The location in which QM Promisance is installed. Users should browse
+  directly to this location in order to access the game.
+
+URL_HOMEPAGE
+- When users click the "Logout" link, they will be sent to this
+  address.
+
+URL_FORUMS
+- If your website has forums, enter an appropriate URL here to include
+  it in the game's side menu.
+
+MAIL_ADMIN
+- Your game's primary administrative contact address. Make sure it is
+  valid.
+
+MAIL_VALIDATE
+- The From address for all Validation emails. Feel free to use a
+  "no-reply" address here.
+
+TXT_NEWS
+- This will be displayed at the top of every page when logged in.
+  Useful for announcing special events or changes to the game.
+
+TXT_RULES
+- This will be displayed on the Signup page.
+  Useful if you wish to enforce special rules.
+
+TXT_EMAIL
+- This will be included at the bottom of all signup notification
+  emails.
+
+DEFAULT_LANGUAGE
+- This indicates the default language in which in-game text should be
+  displayed, as well as the language used for all out-of-game pages
+  (e.g. login form, rankings, and history).
+  Users who are logged in may choose from any additional languages
+  that may be available.
+
+BASE_LANGUAGE
+- If an incomplete language pack is configured as default, any missing
+  strings will be loaded from the base language pack. In nearly all
+  situations, this should remain set to "en-US" and should not be
+  modified.
+
+EMPIRES_PER_USER
+- This specifies how many empires a single user can create at once. A
+  user with multiple accounts can switch between them from the "Main"
+  page, just as an Administrator does.
+
+TURNS_PROTECTION
+- When empires are first created, they will be placed under protection
+  for this many turns, during which nobody can attack them (and during
+  which they cannot attack anybody else) and public market access is
+  restricted.
+
+TURNS_INITIAL
+- Newly created empires are immediately granted this many turns.
+
+TURNS_MAXIMUM
+- When empires are given turns, they cannot get more than this many at
+  once - any more will overflow into Stored Turns.
+
+TURNS_STORED
+- Empires cannot accumulate more than this many Stored Turns - further
+  turns are lost. Each time turns are given, a specified number of
+  stored turns will also be given to the empire.
+
+TURNS_VALIDATE
+- After this many turns have been used, the empire must provide its
+  Validation code before it can continue playing.
+
+TURNS_ERA
+- Empires cannot advance to the next era (or regress to the previous
+  one) until they have spent this many turns in their current era.
+
+VACATION_START
+- When an empire sets itself on Vacation, it will immediately be locked
+  out and will cease to receive turns, though other empires will still
+  be able to attack it. After this many hours have elapsed, it is
+  placed under Protection. The round's "cooldown" period must be at
+  least as long as the sum of this value and VACATION_LIMIT below.
+
+VACATION_LIMIT
+- Once an empire has been under vacation protection for this many
+  hours, it may choose to leave vacation. During the "cooldown" period
+  of a round, empires are automatically removed from vacation once
+  this time limit is reached. If this is set to 0, vacation is disabled
+  entirely.
+
+TURNS_FREQ
+- This setting specifies, in minutes, how often empires receive
+  additional turns.
+
+TURNS_OFFSET
+- This setting specifies how many minutes the game will wait after the
+  round starts before starting to give out turns. If you run multiple
+  games, this can be used to stagger their turn periods to more evenly
+  distribute system load.
+
+TURNS_OFFSET_HOURLY
+- This setting specifies how many minutes the game will wait after the
+  round starts before starting to perform hourly maintenance events. If
+  you run multiple games, this can be used to stagger said processing
+  to more evenly distribute system load.
+
+TURNS_OFFSET_DAILY
+- This setting specifies how many minutes the game will wait after the
+  round starts before starting to perform daily maintenance events,
+  including the Lottery. If you run multiple games, this can be used to
+  stagger said processing to more evenly distribute system load.
+
+TURNS_CRONTAB
+- Enable this option if you intend to use crontab to periodically
+  invoke the turns script. If disabled, the game will attempt to give
+  out turns and perform other appropriate updates on every page load,
+  simplifying configuration but altering the distribution of CPU load
+  on the server.
+
+TURNS_CRONLOG
+- If TURNS_CRONTAB has been disabled, enable this option to log all
+  turn script events to the game's database. When doing this, turns.php
+  should be periodically invoked (e.g. once per day) in order to
+  retrieve the log entries, format and display them (and ideally
+  redirect to a log file), and delete them from the database.
+
+TURNS_COUNT
+- This specifies how many turns to give out during each interval.
+
+TURNS_UNSTORE
+- This specifies how many Stored turns should be released during each
+  interval.
+
+IDLE_TIMEOUT_*
+- These values determine how often the game automatically deletes
+  various categories of empires. Empires are deleted each time turns
+  are given out.
+  NEW - Newly created empires which never used enough turns to be
+        prompted for validation. These tend to be empires created by
+        users who received a recommendation from a friend only to lose
+        interest and forget about the game.
+  VALIDATE - Empires which have been prompted for their validation
+             code but have failed to provide it. These are most often
+             created using incorrect email addresses.
+  ABANDON - Empires which have been created and validated, but whose
+            owners simply have not logged in for an extended period of
+            time. Empires should set themselves on Vacation if they
+            foresee being unable to access the game for this long.
+  KILLED - Empires which have been killed, but have failed to login and
+           be told of their demise. Empires who do log in after dying
+           are promptly deleted to allow them to quickly signup again
+           and rejoin the action.
+  DELETE - Empires who have explicitly deleted their accounts. This is
+           mainly to prevent empires from quickly restarting in order
+           to gain an advantage over other players. Empires which are
+           still under new player protection are deleted immediately.
+
+LOTTERY_MAXTICKETS
+- Each empire can buy multiple lottery tickets for a chance to win.
+  This also increases the range of ticket numbers.
+
+LOTTERY_JACKPOT
+- The lottery's Jackpot is initialized to this value at the beginning
+  of each round, as well as each time somebody wins.
+
+BUILD_COST
+- The base cost to build structures. As empires grow larger, buildings
+  cost more to build.
+
+DROP_DELAY
+- The minimum amount of time, in seconds, that must elapse between
+  capturing land from another empire and attempting to drop land from
+  one's own empire. Set to zero in order to disable this behavior.
+
+BANK_SAVERATE, BANK_LOANRATE
+- Base savings account and loan interest rates. Larger empires get
+  smaller savings interest rates and higher loan interest rates.
+
+PUBMKT_START
+- The number of hours it takes for shipments of goods to reach the
+  Public Market.
+
+PUBMKT_MINTIME
+- After items have been on the public market for this many hours, the
+  owner may choose to manually withdraw them from the market, minus a
+  percentage. Setting this to -1 will prevent empires from manually
+  removing their goods.
+
+PUBMKT_MAXTIME
+- After items have been on the public market for this many hours, the
+  market officials will automatically return them to their owner, minus
+  a percentage. Setting this to -1 will prevent goods from being
+  automatically returned.
+
+PUBMKT_MINSELL / PUBMKT_MINFOOD
+- The minimum percentage of an empire's goods that can be placed on the
+  market in a single shipment. MINSELL applies to military units only,
+  and MINFOOD applies to food. Set to 0 to disable limits.
+
+PUBMKT_MAXSELL / PUBMKT_MAXFOOD
+- The maximum percentage of an empire's goods that can be placed on the
+  public market at any given time. Goods already on the market are
+  included in this check. MAXSELL applies to military units only, and
+  MAXFOOD applies to food. Set to 100 to disable limits.
+
+CLAN_ENABLE
+- Set this to TRUE to enable clans in your game. Empires can join
+  clans to unite both in defense and offense against their enemies.
+  Clans can form trade alliances, and they can also declare war against
+  one another to allow unlimited attacks.
+
+CLAN_MINJOIN
+- Once an empire has created or joined a clan, it cannot leave the clan
+  until this many hours have elapsed. Clan leaders can forcibly remove
+  other members without regard to this limit.
+
+CLAN_MINREJOIN
+- Once an empire has left a clan, whether by its own will or not, it
+  must wait this many hours before it will be allowed to create or join
+  another clan.
+
+CLAN_MINSHARE
+- When an empire chooses to share its forces with other members, they
+  are deployed immediately. However, unsharing forces takes this many
+  hours to complete.
+
+CLAN_MINRELATE
+- When a clan forms an alliance or declares war, it must wait this many
+  hours before it can change the status of the relation. Note that this
+  only applies to the clan which last affected the relation - the other
+  clan is free to respond immediately to any changes.
+
+CLAN_MAXALLY
+- This defines the maximum number of alliances any one clan is allowed
+  to have. Additional incoming or outgoing alliance requests will be
+  denied, and existing requests beyond this limit cannot be accepted.
+
+CLAN_MAXWAR
+- This defines the maximum number of wars one clan can declare at once.
+  Be aware that there is no limit on the number of incoming war
+  declarations - unpopular clans will receive no such protection.
+
+CLAN_VIEW_STAT
+- When enabled, this allows clan leaders to view the detailed Empire
+  Status of all members of their clan by clicking on their name in the
+  Ranks table on the Clan Management page.
+
+CLAN_VIEW_AID
+- When enabled, the Clan Management page will display a summary of all
+  foreign aid sent between members of the clan.
+
+CLAN_INVITE_TIME
+- When an empire is invited to join a clan, it has this many hours to
+  respond and join the clan before the offer expires.
+
+CLAN_LATE_JOIN
+- Clans can never be created near the end of the round - if this option
+  is turned off, empires will not be permitted to join them, either.
+
+PVTM_MAXSELL
+- This limits how many troops can be sold on the Private Market at any
+  given moment, specified in hundredths of a percent (values 0-10000).
+  As turns are given out, more troops can be sold.
+  Food sales are not limited by this configuration option.
+
+PVTM_SHOPBONUS
+- This defines the dominant source of Private Market price bonuses,
+  both when buying and selling. A value closer to 0 provides more bonus
+  from Markets than Keeps, while a value closer to 1 provides more
+  bonus from Keeps than Markets.
+
+PVTM_TRP*, PVTM_FOOD
+- These specify the base cost of all items in the game. PVTM_TRPARM, in
+  particular, also defines how much cash and military units contribute
+  to your Networth.
+
+INDUSTRY_MULT
+- This allows globally adjusting the output of Blacksmiths in-game.
+
+MAX_ATTACKS
+- This allows defining a limit on how many times one empire may launch
+  attacks against other empires at any given moment. Each time an
+  empire attacks or casts an offensive spell, its counter is increased
+  by 2 - when it reaches 2 times the defined limit, no further attacks
+  can be made. For every set of turns given or attack directed upon an
+  empire, its attack counter is decremented by 1. When being attacked,
+  the counter can go below zero, allowing attacks beyond the normal
+  limit; once each hour, negative attack counters will be increased by
+  2 until they reach zero.
+  If clans are enabled, attacks made between warring clans do not
+  count toward this limit, though they still affect everyone else.
+  Setting this to 0 disables attack limits for all empires.
+
+AID_ENABLE
+- In some environments (such as a clanless free-for-all), it does not
+  make sense to allow sending foreign aid to other empires. This option
+  allows disabling it entirely.
+
+AID_MAXCREDITS
+- This specifies the maximum number of foreign aid credits any empire
+  can accumulate at once. Note that sending aid to clan members and to
+  allies does not consume aid credits.
+
+AID_DELAY
+- This controls how long, in seconds, it takes for aid credits to be
+  regained.
+
+MESSAGES_MAXCREDITS
+- This specifies the maximum number of new private messages any empire
+  can send at once. Note that replies and reports do not count toward
+  this limit.
+
+MESSAGES_DELAY
+- This controls how long, in seconds, it takes for message credits to
+  be regained.
+
+FRIEND_MAGIC_ENABLE
+- When enabled, this option will allow certain self-cast spells to also
+  be cast on friendly empires. No spells are yet capable of this.
+
+SCORE_ENABLE
+- This option causes the game to maintain a Score for each empire and
+  determine rankings based on this score rather than by Networth.
+  Note that this option must be enabled from the beginning of a round
+  for it to have any meaning - scores are accumulated as the round
+  progresses, and they are not calculated while this option is
+  disabled.
+
+MAGIC_ALLOW_REGRESS
+- The original Promisance only allowed empires to progress forward from
+  the Past to the Present, and subsequently to the Future. Setting this
+  option will allow empires to cast a spell in order to travel back in
+  time, regressing to a previous era.
+
+GRAVEYARD_DISCLOSE
+- When round results are recorded into History, the user account which
+  controlled each empire is revealed and cross-referenced. Enabling
+  this option will also disclose user account association on the
+  Graveyard page while the round is still in progress.
+
+CLANSTATS_MINSIZE
+- This specifies the minimum number of members required in order for a
+  clan to be listed on the Top Clans and Clan Statistics pages.
+
+TOPEMPIRES_COUNT
+- This limits how many empires will be listed from the "Top Empires"
+  listing accessible from the Login page.
+
+TOPPLAYERS_COUNT
+- This limits how many user accounts will be listed from the "All Time
+  Top Players" listing accessible from the Login page.
+
+SIGNUP_CLOSED_USER
+- When enabled, this option prevents the creation of new user accounts
+  from the Signup page. This option is best used for games intended for
+  a closed audience, such as invitational tournaments. New user
+  accounts will have to be created from the User Administration page
+  by somebody with Administrator privileges.
+  Users will be instructed to check the text you defined in the
+  TXT_RULES setting above for how to get a new user account.
+
+SIGNUP_CLOSED_EMPIRE
+- When enabled, this option prevents the creation of new empires from
+  the Signup page while still allowing creation of new user accounts
+  (unless the above option is also enabled). Similar to the above
+  option, this is intended mostly for closed tournaments or similar
+  scenarios. New empires will have to be created from the Empire
+  Administration page by somebody with Administrator privileges.
+  Users will be instructed to check the text you defined in the
+  TXT_RULES setting above for how to get a new empire.
+  If both SIGNUP_CLOSED_USER and SIGNUP_CLOSED_EMPIRE are enabled, then
+  public signups will be completely disabled.
+
+VALIDATE_REQUIRE
+- If this option is enabled, users will be required to submit their
+  Validation code once they have used enough turns (as defined in the
+  TURNS_VALIDATE setting).
+
+VALIDATE_ALLOW
+- When enabled, users will be emailed their validation code during
+  signup and will be permitted to enter it when prompted; when
+  disabled, all empires must be manually validated by an Administrator
+  or Moderator.
+
+VALIDATE_RESEND
+- This controls how long users must wait between attempting to resend
+  their validation code.
+
+COUNTER_TEMPLATE
+- If you would like to use a different digit style for the Created
+  Empires counter on the Login page, place a webcounter template image
+  in the "images" directory and specify its filename here. The template
+  file must contain the digits 0 through 9, in that order, and with no
+  additional glyphs. GIF, JPG, and PNG templates are supported, and the
+  generated counter graphic will automatically use the same format.
+  If this option is left blank, the Created Empires counter will be
+  displayed as plain text.
+
+COUNTER_DIGITS
+- This controls the number of digits that are generated for the login
+  page's Created Empires counter. Setting this to 0 will make it
+  automatically use as many digits as are necessary.
+
+BONUS_TURNS
+- Enable this to allow users to collect bonus turns once per day. If
+  you define any Banners (see below), turns will be collected upon
+  clicking on a banner, otherwise users will be shown a "Collect Bonus
+  Turns" button at the top of each page if they are eligible to collect
+  them.
+
+$banners
+- Use the specified format to add banner images to display in-game. If
+  banners are configured, the game will randomly display one banner at
+  the top of each page. Clicking the banner will open its destination
+  page in a new browser window. If bonus turns are enabled, clicking
+  the banner will also give extra turns once each day.
+  Note that paid advertisements should NOT be used if you have enabled
+  bonus turns, as this encourages users to engage in click fraud; if
+  you wish to use banners with bonus turns, use only unpaid
+  advertisements.
+
+$styles
+- If you wish to create additional stylesheets for use in-game, define
+  them here and they will be made available for users to configure.
+
+DEFAULT_STYLE
+- This specifies which of the above defined styles will be assigned to
+  newly created users as well as used on all out-of-game pages (e.g.
+  login form, rankings, and history).
+
+DEFAULT_TIMEZONE
+- This specifies the default timezone in which in-game times will be
+  displayed for newly created empires. The value should be specified as
+  an offset, in seconds, from Universal Coordinated Time.
+  The offset configured must be present in the list defined in the file
+  includes/constants.php.
+
+DEFAULT_DATEFORMAT
+- This specifies the default format in which in-game times will be
+  displayed for newly created empires. The value should be a format
+  specification for PHP's date() function.
+
+$empire_defaults
+- Values specified in this list are automatically applied to all
+  empires as they are created. Change these values to modify the
+  initial state of empires, or add new values if you have modified the
+  game to add new empire properties.
+
+LOG_ENABLE
+- Enable this to log every successful action every empire takes in the
+  game into the database. Note that this can significantly increase
+  database traffic and disk usage in a large game, so use it sparingly.
+  When this option is disabled, only error and warning messages will be
+  logged to the database.
+
+DEBUG_FOOTER
+- Page generation statistics (time elapsed, memory usage, and database
+  queries) are normally output within the page footer, though hidden
+  inside an HTML comment tag. Enabling this option will display these
+  statistics directly. This is intended solely for debugging and
+  optimization purposes and should not be enabled on production games.
+
+
+------------
+Modification
+------------
+You are permitted to make modifications to QM Promisance to whatever
+degree you feel is necessary to better support your gaming community,
+as long as it does not conflict with the GNU General Public License,
+version 2 (which should be included as the file "COPYING").
+
+QMT Productions would highly appreciate the sharing of any special
+functionality added to your version of this game so that they may
+potentially be incorporated into future versions.
+
+Several parts of the game have been designed with the intent of being
+customizeable - these include Languge Packs, Races, Eras, Magic Spells,
+and Guide pages. The actual process for adding to these is beyond the
+scope of this document - if you require assistance, please contact the
+author using the information provided below.
+
+
+---------
+Utilities
+---------
+QM Promisance comes with several utility scripts, located in the
+"util" directory:
+
+checklang.php
+- Compares all installed language packs to the configured base language
+  pack, listing all missing and/or extra strings, functions, and guide
+  files.
+
+createlocks.php
+- Ensures that the locks database table is fully populated.
+* NOTE: This should only be used if you have upgraded from QM
+  Promisance version 4.5 or earlier. Once this script has been run, it
+  may be safely deleted.
+
+fixids.php
+- Updates empire and clan ID numbers, both in the current round and in
+  history, to not restart from zero.
+* NOTE: This should only be used if you have upgraded from QM
+  Promisance version 4.6 or earlier. Once this script has been run, it
+  may be safely deleted.
+
+fixranks.php
+- Recalculates the average rank, best rank, and rounds survived for all
+  registered users based on information stored in round history.
+* NOTE: This should only be used if you have upgraded from QM
+  Promisance version 4.2 or earlier. Once this script has been run, it
+  may be safely deleted.
+* NOTE: If you have deleted history for any previous rounds, any rank
+  information accumulated from those rounds will be lost, and the
+  rounds survived count for all participants will indicate that they
+  did not survive.
+
+worldvars.php
+- Allows listing and modifying the game's world variables, as well as
+  adding new ones (e.g. for code updates).
+
+
+----------------
+Acknowledgements
+----------------
+Paul C. Purgett - For writing the original Promisance, without which
+there would have been no incentive to make QM Promisance.
+
+Morvandium - For getting me interested in Promisance, encouraging me
+to help him write QM Promisance 3.0, hosting the QMT Productions
+website for over seven years, and putting up with me all that time.
+
+All coders who have made their own versions of Promisance based on
+QM Promisance, as well as their user communities, for giving meaning
+to my work.
+
+
+-------
+Contact
+-------
+Homepage - http://sourceforge.net/projects/qmpromisance
+           http://www.qmtpro.com/
+
+
+----------
+Disclaimer
+----------
+You use this software at your own risk. The author is not responsible
+for any loss or damage resulting from the use of this software. If you
+do not agree with these terms, do not use this software.

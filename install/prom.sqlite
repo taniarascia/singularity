@@ -1,0 +1,377 @@
+-- QM Promisance - Turn-based strategy game
+-- Copyright (C) QMT Productions
+--
+-- $Id: prom.sqlite 1983 2014-10-01 15:18:43Z quietust $
+
+DROP TABLE IF EXISTS {CLAN};
+CREATE TABLE {CLAN} (
+  c_id INTEGER PRIMARY KEY,
+  c_name varchar(8) NOT NULL DEFAULT '',
+  c_password varchar(255) NOT NULL DEFAULT '',
+  c_members tinyint NOT NULL DEFAULT 0,
+  e_id_leader int unsigned NOT NULL DEFAULT 0,
+  e_id_asst int unsigned NOT NULL DEFAULT 0,
+  e_id_fa1 int unsigned NOT NULL DEFAULT 0,
+  e_id_fa2 int unsigned NOT NULL DEFAULT 0,
+  c_title varchar(255) NOT NULL DEFAULT '',
+  c_url varchar(255) NOT NULL DEFAULT '',
+  c_pic varchar(255) NOT NULL DEFAULT ''
+);
+CREATE INDEX {CLAN}_c_name ON {CLAN} (c_name);
+CREATE INDEX {CLAN}_c_members ON {CLAN} (c_members);
+
+DROP TABLE IF EXISTS {CLAN_INVITE};
+CREATE TABLE {CLAN_INVITE} (
+  ci_id INTEGER PRIMARY KEY,
+  c_id int unsigned NOT NULL DEFAULT 0,
+  e_id_1 int unsigned NOT NULL DEFAULT 0,
+  e_id_2 int unsigned NOT NULL DEFAULT 0,
+  ci_flags tinyint unsigned NOT NULL DEFAULT 0,
+  ci_time int NOT NULL DEFAULT 0
+);
+CREATE INDEX {CLAN_INVITE}_c_id ON {CLAN_INVITE} (c_id);
+CREATE INDEX {CLAN_INVITE}_e_id_2 ON {CLAN_INVITE} (e_id_2);
+
+DROP TABLE IF EXISTS {CLAN_MESSAGE};
+CREATE TABLE {CLAN_MESSAGE} (
+  cm_id INTEGER PRIMARY KEY,
+  ct_id int unsigned NOT NULL DEFAULT 0,
+  e_id int unsigned NOT NULL DEFAULT 0,
+  cm_body text NOT NULL,
+  cm_time int NOT NULL DEFAULT 0,
+  cm_flags tinyint unsigned NOT NULL DEFAULT 0
+);
+CREATE INDEX {CLAN_MESSAGE}_e_id ON {CLAN_MESSAGE} (e_id);
+CREATE INDEX {CLAN_MESSAGE}_cm_time ON {CLAN_MESSAGE} (cm_time);
+
+DROP TABLE IF EXISTS {CLAN_NEWS};
+CREATE TABLE {CLAN_NEWS} (
+  cn_id INTEGER PRIMARY KEY,
+  cn_time int NOT NULL DEFAULT 0,
+  c_id int unsigned NOT NULL DEFAULT 0,
+  e_id_1 int unsigned NOT NULL DEFAULT 0,
+  c_id_2 int unsigned NOT NULL DEFAULT 0,
+  e_id_2 int unsigned NOT NULL DEFAULT 0,
+  cn_event smallint unsigned NOT NULL DEFAULT 0
+);
+CREATE INDEX {CLAN_NEWS}_c_id ON {CLAN_NEWS} (c_id);
+CREATE INDEX {CLAN_NEWS}_e_id_1 ON {CLAN_NEWS} (e_id_1);
+CREATE INDEX {CLAN_NEWS}_c_id_2 ON {CLAN_NEWS} (c_id_2);
+CREATE INDEX {CLAN_NEWS}_e_id_2 ON {CLAN_NEWS} (e_id_2);
+CREATE INDEX {CLAN_NEWS}_cn_event ON {CLAN_NEWS} (cn_event);
+
+DROP TABLE IF EXISTS {CLAN_RELATION};
+CREATE TABLE {CLAN_RELATION} (
+  cr_id INTEGER PRIMARY KEY,
+  c_id_1 int unsigned NOT NULL DEFAULT 0,
+  c_id_2 int unsigned NOT NULL DEFAULT 0,
+  cr_flags tinyint unsigned NOT NULL DEFAULT 0,
+  cr_time int NOT NULL DEFAULT 0
+);
+CREATE INDEX {CLAN_RELATION}_c_id_1 ON {CLAN_RELATION} (c_id_1);
+CREATE INDEX {CLAN_RELATION}_c_id_2 ON {CLAN_RELATION} (c_id_2);
+CREATE INDEX {CLAN_RELATION}_cr_flags ON {CLAN_RELATION} (cr_flags);
+
+DROP TABLE IF EXISTS {CLAN_TOPIC};
+CREATE TABLE {CLAN_TOPIC} (
+  ct_id INTEGER PRIMARY KEY,
+  c_id int unsigned NOT NULL DEFAULT 0,
+  ct_subject varchar(255) NOT NULL DEFAULT '',
+  ct_flags tinyint unsigned NOT NULL DEFAULT 0
+);
+CREATE INDEX {CLAN_TOPIC}_c_id ON {CLAN_TOPIC} (c_id);
+
+DROP TABLE IF EXISTS {EMPIRE};
+CREATE TABLE {EMPIRE} (
+  e_id INTEGER PRIMARY KEY,
+  u_id int unsigned NOT NULL DEFAULT 0,
+  u_oldid int unsigned NOT NULL DEFAULT 0,
+  e_signupdate int NOT NULL DEFAULT 0,
+  e_flags smallint unsigned NOT NULL DEFAULT 0,
+  e_valcode varchar(32) NOT NULL DEFAULT '',
+  e_reason varchar(255) NOT NULL DEFAULT '',
+  e_vacation smallint unsigned NOT NULL DEFAULT 0,
+  e_idle int NOT NULL DEFAULT 0,
+  e_name varchar(255) NOT NULL DEFAULT '',
+  e_race tinyint unsigned NOT NULL DEFAULT 0,
+  e_era tinyint unsigned NOT NULL DEFAULT 0,
+  e_rank mediumint unsigned NOT NULL DEFAULT 0,
+  c_id int unsigned NOT NULL DEFAULT 0,
+  c_oldid int unsigned NOT NULL DEFAULT 0,
+  e_sharing tinyint NOT NULL DEFAULT 0,
+  e_attacks tinyint unsigned NOT NULL DEFAULT 0,
+  e_offsucc smallint unsigned NOT NULL DEFAULT 0,
+  e_offtotal smallint unsigned NOT NULL DEFAULT 0,
+  e_defsucc smallint unsigned NOT NULL DEFAULT 0,
+  e_deftotal smallint unsigned NOT NULL DEFAULT 0,
+  e_kills smallint unsigned NOT NULL DEFAULT 0,
+  e_score int NOT NULL DEFAULT 0,
+  e_killedby int unsigned NOT NULL DEFAULT 0,
+  e_killclan int unsigned NOT NULL DEFAULT 0,
+  e_turns int unsigned NOT NULL DEFAULT 0,
+  e_storedturns int unsigned NOT NULL DEFAULT 0,
+  e_turnsused int unsigned NOT NULL DEFAULT 0,
+  e_networth bigint unsigned NOT NULL DEFAULT 0,
+  e_cash bigint unsigned NOT NULL DEFAULT 0,
+  e_food bigint unsigned NOT NULL DEFAULT 0,
+  e_peasants bigint unsigned NOT NULL DEFAULT 0,
+  e_trparm bigint unsigned NOT NULL DEFAULT 0,
+  e_trplnd bigint unsigned NOT NULL DEFAULT 0,
+  e_trpfly bigint unsigned NOT NULL DEFAULT 0,
+  e_trpsea bigint unsigned NOT NULL DEFAULT 0,
+  e_trpwiz bigint unsigned NOT NULL DEFAULT 0,
+  e_health tinyint unsigned NOT NULL DEFAULT 0,
+  e_runes bigint unsigned NOT NULL DEFAULT 0,
+  e_indarm tinyint unsigned NOT NULL DEFAULT 0,
+  e_indlnd tinyint unsigned NOT NULL DEFAULT 0,
+  e_indfly tinyint unsigned NOT NULL DEFAULT 0,
+  e_indsea tinyint unsigned NOT NULL DEFAULT 0,
+  e_land int unsigned NOT NULL DEFAULT 0,
+  e_bldpop int unsigned NOT NULL DEFAULT 0,
+  e_bldcash int unsigned NOT NULL DEFAULT 0,
+  e_bldtrp int unsigned NOT NULL DEFAULT 0,
+  e_bldcost int unsigned NOT NULL DEFAULT 0,
+  e_bldwiz int unsigned NOT NULL DEFAULT 0,
+  e_bldfood int unsigned NOT NULL DEFAULT 0,
+  e_blddef int unsigned NOT NULL DEFAULT 0,
+  e_freeland int unsigned NOT NULL DEFAULT 0,
+  e_tax tinyint unsigned NOT NULL DEFAULT 0,
+  e_bank bigint unsigned NOT NULL DEFAULT 0,
+  e_loan bigint unsigned NOT NULL DEFAULT 0,
+  e_mktarm bigint unsigned NOT NULL DEFAULT 0,
+  e_mktlnd bigint unsigned NOT NULL DEFAULT 0,
+  e_mktfly bigint unsigned NOT NULL DEFAULT 0,
+  e_mktsea bigint unsigned NOT NULL DEFAULT 0,
+  e_mktfood bigint unsigned NOT NULL DEFAULT 0,
+  e_mktperarm smallint unsigned NOT NULL DEFAULT 0,
+  e_mktperlnd smallint unsigned NOT NULL DEFAULT 0,
+  e_mktperfly smallint unsigned NOT NULL DEFAULT 0,
+  e_mktpersea smallint unsigned NOT NULL DEFAULT 0
+);
+CREATE INDEX {EMPIRE}_u_id ON {EMPIRE} (u_id);
+CREATE INDEX {EMPIRE}_u_oldid ON {EMPIRE} (u_oldid);
+CREATE INDEX {EMPIRE}_e_flags ON {EMPIRE} (e_flags);
+CREATE INDEX {EMPIRE}_c_id ON {EMPIRE} (c_id);
+
+DROP TABLE IF EXISTS {EMPIRE_EFFECT};
+CREATE TABLE {EMPIRE_EFFECT} (
+  e_id int unsigned NOT NULL DEFAULT 0,
+  ef_name varbinary(255) NOT NULL DEFAULT '',
+  ef_value int NOT NULL DEFAULT 0,
+  PRIMARY KEY (e_id,ef_name)
+);
+
+DROP TABLE IF EXISTS {EMPIRE_MESSAGE};
+CREATE TABLE {EMPIRE_MESSAGE} (
+  m_id INTEGER PRIMARY KEY,
+  m_id_ref int unsigned NOT NULL DEFAULT 0,
+  m_time int NOT NULL DEFAULT 0,
+  e_id_src int unsigned NOT NULL DEFAULT 0,
+  e_id_dst int unsigned NOT NULL DEFAULT 0,
+  m_subject varchar(255) NOT NULL DEFAULT '',
+  m_body text NOT NULL,
+  m_flags tinyint unsigned NOT NULL DEFAULT 0
+);
+CREATE INDEX {EMPIRE_MESSAGE}_m_time ON {EMPIRE_MESSAGE} (m_time);
+CREATE INDEX {EMPIRE_MESSAGE}_e_id_src ON {EMPIRE_MESSAGE} (e_id_src);
+CREATE INDEX {EMPIRE_MESSAGE}_e_id_dst ON {EMPIRE_MESSAGE} (e_id_dst);
+CREATE INDEX {EMPIRE_MESSAGE}_m_flags ON {EMPIRE_MESSAGE} (m_flags);
+
+DROP TABLE IF EXISTS {EMPIRE_NEWS};
+CREATE TABLE {EMPIRE_NEWS} (
+  n_id INTEGER PRIMARY KEY,
+  n_time int NOT NULL DEFAULT 0,
+  e_id_src int unsigned NOT NULL DEFAULT 0,
+  c_id_src int unsigned NOT NULL DEFAULT 0,
+  e_id_dst int unsigned NOT NULL DEFAULT 0,
+  c_id_dst int unsigned NOT NULL DEFAULT 0,
+  n_event smallint unsigned NOT NULL DEFAULT 0,
+  n_d0 bigint NOT NULL DEFAULT 0,
+  n_d1 bigint NOT NULL DEFAULT 0,
+  n_d2 bigint NOT NULL DEFAULT 0,
+  n_d3 bigint NOT NULL DEFAULT 0,
+  n_d4 bigint NOT NULL DEFAULT 0,
+  n_d5 bigint NOT NULL DEFAULT 0,
+  n_d6 bigint NOT NULL DEFAULT 0,
+  n_d7 bigint NOT NULL DEFAULT 0,
+  n_d8 bigint NOT NULL DEFAULT 0,
+  n_flags tinyint unsigned NOT NULL DEFAULT 0
+);
+CREATE INDEX {EMPIRE_NEWS}_e_id_src ON {EMPIRE_NEWS} (e_id_src);
+CREATE INDEX {EMPIRE_NEWS}_c_id_src ON {EMPIRE_NEWS} (c_id_src);
+CREATE INDEX {EMPIRE_NEWS}_e_id_dst ON {EMPIRE_NEWS} (e_id_dst);
+CREATE INDEX {EMPIRE_NEWS}_c_id_dst ON {EMPIRE_NEWS} (c_id_dst);
+CREATE INDEX {EMPIRE_NEWS}_n_event ON {EMPIRE_NEWS} (n_event);
+CREATE INDEX {EMPIRE_NEWS}_n_flags ON {EMPIRE_NEWS} (n_flags);
+
+DROP TABLE IF EXISTS {HISTORY_CLAN};
+CREATE TABLE {HISTORY_CLAN} (
+  hr_id smallint NOT NULL DEFAULT 0,
+  hc_id int unsigned NOT NULL DEFAULT 0,
+  hc_members smallint NOT NULL DEFAULT 0,
+  hc_name varchar(8) NOT NULL DEFAULT '',
+  hc_title varchar(255) NOT NULL DEFAULT '',
+  hc_totalnet bigint unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (hr_id, hc_id)
+);
+
+DROP TABLE IF EXISTS {HISTORY_EMPIRE};
+CREATE TABLE {HISTORY_EMPIRE} (
+  hr_id smallint NOT NULL DEFAULT 0,
+  he_flags tinyint unsigned NOT NULL DEFAULT 0,
+  u_id int unsigned NOT NULL DEFAULT 0,
+  he_id int unsigned NOT NULL DEFAULT 0,
+  he_name varchar(255) NOT NULL DEFAULT '',
+  he_race varchar(64) NOT NULL DEFAULT '',
+  he_era varchar(64) NOT NULL DEFAULT '',
+  hc_id int unsigned NOT NULL DEFAULT 0,
+  he_offsucc smallint unsigned NOT NULL DEFAULT 0,
+  he_offtotal smallint unsigned NOT NULL DEFAULT 0,
+  he_defsucc smallint unsigned NOT NULL DEFAULT 0,
+  he_deftotal smallint unsigned NOT NULL DEFAULT 0,
+  he_kills smallint unsigned NOT NULL DEFAULT 0,
+  he_score int NOT NULL DEFAULT 0,
+  he_networth bigint unsigned NOT NULL DEFAULT 0,
+  he_land int unsigned NOT NULL DEFAULT 0,
+  he_rank mediumint unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (hr_id, he_id)
+);
+
+DROP TABLE IF EXISTS {HISTORY_ROUND};
+CREATE TABLE {HISTORY_ROUND} (
+  hr_id INTEGER PRIMARY KEY,
+  hr_name varchar(64) NOT NULL DEFAULT '',
+  hr_description text NOT NULL,
+  hr_startdate int NOT NULL DEFAULT 0,
+  hr_stopdate int NOT NULL DEFAULT 0,
+  hr_flags tinyint unsigned NOT NULL DEFAULT 0,
+  hr_smallclansize tinyint unsigned NOT NULL DEFAULT 0,
+  hr_smallclans smallint unsigned NOT NULL DEFAULT 0,
+  hr_allclans smallint unsigned NOT NULL DEFAULT 0,
+  hr_nonclanempires mediumint unsigned NOT NULL DEFAULT 0,
+  hr_liveempires mediumint unsigned NOT NULL DEFAULT 0,
+  hr_deadempires mediumint unsigned NOT NULL DEFAULT 0,
+  hr_delempires mediumint unsigned NOT NULL DEFAULT 0,
+  hr_allempires mediumint unsigned NOT NULL DEFAULT 0
+);
+
+DROP TABLE IF EXISTS {LOCK};
+CREATE TABLE {LOCK} (
+  lock_id bigint unsigned NOT NULL DEFAULT 0
+);
+
+DROP TABLE IF EXISTS {LOG};
+CREATE TABLE {LOG} (
+  log_id INTEGER PRIMARY KEY,
+  log_time int unsigned NOT NULL DEFAULT 0,
+  log_type int unsigned NOT NULL DEFAULT 0,
+  log_ip varchar(40) NOT NULL DEFAULT '',
+  log_page varchar(32) NOT NULL DEFAULT '',
+  log_action varchar(64) NOT NULL DEFAULT '',
+  log_locks varchar(64) NOT NULL DEFAULT '',
+  log_text text NOT NULL,
+  u_id int unsigned NOT NULL DEFAULT 0,
+  e_id int unsigned NOT NULL DEFAULT 0,
+  c_id int unsigned NOT NULL DEFAULT 0
+);
+
+DROP TABLE IF EXISTS {LOTTERY};
+CREATE TABLE {LOTTERY} (
+  e_id int unsigned NOT NULL DEFAULT 0,
+  l_ticket int unsigned NOT NULL DEFAULT 0,
+  l_cash bigint unsigned NOT NULL DEFAULT 0
+);
+CREATE INDEX {LOTTERY}_e_id ON {LOTTERY} (e_id);
+CREATE INDEX {LOTTERY}_l_ticket ON {LOTTERY} (l_ticket);
+
+DROP TABLE IF EXISTS {MARKET};
+CREATE TABLE {MARKET} (
+  k_id INTEGER PRIMARY KEY,
+  k_type tinyint unsigned NOT NULL DEFAULT 0,
+  e_id int unsigned NOT NULL DEFAULT 0,
+  k_amt bigint unsigned NOT NULL DEFAULT 0,
+  k_price int unsigned NOT NULL DEFAULT 0,
+  k_time int NOT NULL DEFAULT 0
+);
+CREATE INDEX {MARKET}_e_id ON {MARKET} (e_id);
+CREATE INDEX {MARKET}_k_type ON {MARKET} (k_type);
+CREATE INDEX {MARKET}_k_time ON {MARKET} (k_time);
+
+DROP TABLE IF EXISTS {PERMISSION};
+CREATE TABLE {PERMISSION} (
+  p_id INTEGER PRIMARY KEY,
+  p_type tinyint unsigned NOT NULL DEFAULT 0,
+  p_criteria varchar(255) NOT NULL DEFAULT '',
+  p_comment varchar(255) NOT NULL DEFAULT '',
+  p_reason varchar(255) NOT NULL DEFAULT '',
+  p_createtime int unsigned NOT NULL DEFAULT 0,
+  p_updatetime int unsigned NOT NULL DEFAULT 0,
+  p_lasthit int unsigned NOT NULL DEFAULT 0,
+  p_hitcount int unsigned NOT NULL DEFAULT 0,
+  p_expire int unsigned NOT NULL DEFAULT 0
+);
+CREATE INDEX {PERMISSION}_p_type ON {PERMISSION} (p_type);
+CREATE INDEX {PERMISSION}_p_expire ON {PERMISSION} (p_expire);
+
+DROP TABLE IF EXISTS {SESSION};
+CREATE TABLE {SESSION} (
+  sess_id varbinary(64) PRIMARY KEY,
+  sess_time int unsigned NOT NULL DEFAULT 0,
+  sess_data blob NOT NULL
+);
+CREATE INDEX {SESSION}_sess_time ON {SESSION} (sess_time);
+
+DROP TABLE IF EXISTS {TURNLOG};
+CREATE TABLE {TURNLOG} (
+  turn_id INTEGER PRIMARY KEY,
+  turn_time int unsigned NOT NULL DEFAULT 0,
+  turn_ticks int unsigned NOT NULL DEFAULT 0,
+  turn_interval int unsigned NOT NULL DEFAULT 0,
+  turn_type tinyint unsigned NOT NULL DEFAULT 0,
+  turn_text text NOT NULL
+);
+CREATE INDEX {TURNLOG}_turn_type ON {TURNLOG} (turn_type);
+
+DROP TABLE IF EXISTS {USER};
+CREATE TABLE {USER} (
+  u_id INTEGER PRIMARY KEY,
+  u_username varchar(255) NOT NULL DEFAULT '',
+  u_password varchar(255) NOT NULL DEFAULT '',
+  u_flags tinyint unsigned NOT NULL DEFAULT 0,
+  u_name varchar(255) NOT NULL DEFAULT '',
+  u_email varchar(255) NOT NULL DEFAULT '',
+  u_comment varchar(255) NOT NULL DEFAULT '',
+  u_timezone mediumint NOT NULL DEFAULT 0,
+  u_style varchar(32) NOT NULL DEFAULT '',
+  u_lang varchar(16) NOT NULL DEFAULT '',
+  u_dateformat varchar(64) NOT NULL DEFAULT '',
+  u_lastip varchar(40) NOT NULL DEFAULT '',
+  u_kills int unsigned NOT NULL DEFAULT 0,
+  u_deaths int unsigned NOT NULL DEFAULT 0,
+  u_offsucc int unsigned NOT NULL DEFAULT 0,
+  u_offtotal int unsigned NOT NULL DEFAULT 0,
+  u_defsucc int unsigned NOT NULL DEFAULT 0,
+  u_deftotal int unsigned NOT NULL DEFAULT 0,
+  u_numplays int unsigned NOT NULL DEFAULT 0,
+  u_sucplays int unsigned NOT NULL DEFAULT 0,
+  u_avgrank double NOT NULL DEFAULT 0,
+  u_bestrank double NOT NULL DEFAULT 0,
+  u_createdate int NOT NULL DEFAULT 0,
+  u_lastdate int NOT NULL DEFAULT 0,
+  UNIQUE (u_username),
+  UNIQUE (u_email)
+);
+CREATE INDEX {USER}_u_flags ON {USER} (u_flags);
+
+DROP TABLE IF EXISTS {VAR};
+CREATE TABLE {VAR} (
+  v_name varbinary(255) NOT NULL DEFAULT '',
+  v_value varbinary(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (v_name)
+);
+
+DROP TABLE IF EXISTS {VAR_ADJUST};
+CREATE TABLE {VAR_ADJUST} (
+  v_name varbinary(255) NOT NULL DEFAULT '',
+  v_offset bigint NOT NULL DEFAULT 0
+);

@@ -1,0 +1,318 @@
+/* QM Promisance - Turn-based strategy game
+ * Copyright (C) QMT Productions
+ *
+ * $Id: qmt.css 1983 2014-10-01 15:18:43Z quietust $
+ */
+
+::-webkit-scrollbar {
+	width: 16px;
+	height: 16px;
+}
+html {
+	color: rgba(255, 255, 255, .7);
+	background: #121314;
+	font-size: 1rem;
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	line-height: 1.4;
+}
+#content {
+	margin-left: 200px;
+}
+#sidebar {
+	float: left;
+	width: 200px;
+	overflow: auto;
+}
+#sidebar::after {
+	clear: both;
+	display: block;
+}
+
+/* body > #sidebar {
+	position: fixed;
+} */
+
+a {
+	text-decoration: none;
+	color: #efefef;
+}
+a:hover {
+	color: #FFDE61;
+	text-decoration: none;
+}
+table {
+	background: #222326;
+}
+table,
+caption {
+	margin-left: auto;
+	margin-right: auto;
+}
+td {
+	text-align: left;
+	font-size: medium;
+}
+th {
+	text-align: center;
+	font-size: medium;
+	font-weight: normal;
+}
+.guide {
+	text-align: left;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+.guide dt {
+	font-weight: bold;
+	color: white;
+}
+.guidetoc td {
+	color: white;
+	text-align: center;
+	background-color: #1C1C1F;
+}
+.guidetoc th {
+	color: white;
+	background-color: #1C1C1F;
+}
+.menu {
+	padding-top: 8px;
+	padding-bottom: 20px;
+	background: #222326;
+}
+.menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* Sidebar BG */
+
+.menu li {
+	padding-left: 8px;
+	color: #4A4A52;
+	text-align: left;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: .8rem;
+}
+.menu ul li ul {
+	padding: 6px 0;
+}
+.menu ul li ul li a {
+	text-transform: none;
+	padding: 2px 0px 2px 8px;
+	display: block;
+	color: #efefef;
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	text-align: left;
+	font-weight: normal;
+	font-size: .9rem;
+}
+.menu ul li ul li a:hover {
+	background: #512DA8;
+	/*linear-gradient(to left, #512DA8, #673AB7); #7A1DFF*/
+	color: #fff;
+}
+th {
+	padding: 4px 4px;
+}
+.inputtable {
+	padding: 15px;
+}
+.inputtable td {
+	font-size: medium;
+	color: white;
+}
+.inputtable th {
+	font-size: medium;
+	color: white;
+	/*background-color: #121314; */
+}
+.scorestable th {
+	color: white;
+	font-size: medium;
+	padding: 0.1em 0.5em;
+}
+.scorestable td {
+	font-size: medium;
+	padding: 0.1em 0.5em;
+}
+.empstatus th {
+	text-align: left;
+}
+.empstatus td {
+	text-align: right;
+	color: #fff;
+}
+.mnormal {
+	color: white;
+}
+.mdisabled {
+	color: #FF4700;
+}
+.mself {
+	color: #527FBC;
+}
+.mclan {
+	color: #9FBFDF;
+}
+.mally {
+	color: #63A1C2;
+}
+.mwar {
+	color: #DE0D57;
+}
+.mprotected {
+	color: #2BCF4A;
+}
+.mdead {
+	color: #DE0D57;
+}
+.madmin {
+	color: #cc99cc;
+}
+.cgood {
+	color: #2BCF4A;
+}
+.cwarn {
+	color: #ffeead;
+}
+.cbad {
+	color: #DE0D57;
+}
+.cneutral {
+	color: white;
+}
+.era1 {
+	color: white;
+	background-color: #1C1C1F;
+	font-size: large;
+}
+.era2 {
+	color: white;
+	background-color: maroon;
+	font-size: large;
+}
+.era3 {
+	color: white;
+	background-color: #005F00;
+	font-size: large;
+}
+.era0 {
+	color: white;
+	background-color: maroon;
+	font-size: large;
+}
+.al {
+	text-align: left;
+}
+.ac {
+	padding: 10px;
+	text-align: center;
+}
+.ar {
+	text-align: right;
+}
+.container {
+	max-width: 400px;
+	padding: 0 15px;
+	margin-left: auto;
+	margin-right: auto
+}
+.container [type=text],
+.container [type=password] {
+	width: 100%;
+}
+.button,
+[type=button],
+[type=reset],
+[type=submit],
+a.button,
+button {
+	display: inline-block;
+	line-height: 1;
+	border: 3px solid #2E4AA6;
+	border-radius: 30px;
+	background: #2E4AA6;
+	color: #fff;
+	font-weight: bold;
+	font-size: .8rem;
+	text-transform: uppercase;
+	padding: 5px 10px;
+	margin: .5rem 0;
+	white-space: nowrap;
+	vertical-align: middle;
+	text-align: center;
+	cursor: pointer
+}
+.button:active,
+.button:focus,
+.button:hover,
+[type=button]:active,
+[type=button]:focus,
+[type=button]:hover,
+[type=reset]:active,
+[type=reset]:focus,
+[type=reset]:hover,
+[type=submit]:active,
+[type=submit]:focus,
+[type=submit]:hover,
+a.button:active,
+a.button:focus,
+a.button:hover,
+button:active,
+button:focus,
+button:hover {
+	border: 3px solid #17338E;
+	background: #17338E;
+	color: #fff;
+	text-decoration: none
+}
+.button:before,
+[type=button]:before,
+[type=reset]:before,
+[type=submit]:before,
+a.button:before,
+button:before {
+	content: '';
+	display: inline-block;
+	vertical-align: middle
+}
+[type=text],
+[type=password],
+select,
+textarea {
+	display: block;
+	background: #1C1C1F;
+	border: 1px solid #222326;
+	border-radius: 6px;
+	padding: 4px 6px;
+	outline: none;
+	vertical-align: middle;
+	color: white;
+	font-size: 1rem;
+	width: 90%;
+}
+select {
+	-webkit-appearance: none;
+	width: 95%;
+	color: rgba(255, 255, 255, .5);
+	line-height: 1;
+}
+[type=text]:hover,
+[type=password]:hover,
+select:hover,
+textarea:hover {
+	background: #121212;
+}
+[type=text]:focus,
+[type=password:focus,
+select:focus,
+textarea:focus {
+	border: 1px solid #2E4AA6;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1), 0 0 6px #2E4AA6;
+}

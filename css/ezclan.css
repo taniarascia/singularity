@@ -1,0 +1,172 @@
+/* QM Promisance - Turn-based strategy game
+ * Copyright (C) QMT Productions
+ *
+ * $Id: ezclan.css 1983 2014-10-01 15:18:43Z quietust $
+ */
+
+#content
+{
+	margin-left: 144px;
+}
+#sidebar
+{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 144px;
+	overflow: auto;
+}
+body > #sidebar
+{
+	position: fixed;
+}
+
+a
+{
+	text-decoration: none;
+	color: #000000;
+}
+a:hover
+{
+	color: #FF0000;
+   	text-decoration: none;
+}
+html
+{
+	color: #000000;
+	background-color: #858CA5;
+	font-size: medium;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+table, caption
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+td
+{
+	text-align: left;
+	font-size: medium;
+}
+th
+{
+	text-align: center;
+	font-size: medium;
+}
+
+.guide
+{
+	text-align: left;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+.guide dt
+{
+	font-weight: bold;
+	color: white;
+}
+.guidetoc td
+{
+	color: white;
+	text-align: center;
+	background-color: #999999;
+}
+.guidetoc th
+{
+	color: white;
+	background-color: #677085;
+}
+
+.menu ul
+{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.menu li
+{
+	color: white;
+	text-align: center;
+	background-color: #677085;
+	font-weight: bold;
+}
+.menu li li
+{
+	color: white;
+	text-align: center;
+	background-color: #999999;
+	font-weight: normal;
+}
+
+.inputtable td
+{
+	font-size: medium;
+	color: #000000;
+	background-color: #999999;
+}
+.inputtable th
+{
+	font-size: medium;
+	color: #FFFFFF;
+	background-color: #677085;
+}
+.scorestable th
+{
+	color: #000000;
+	font-size: medium;
+	padding: 0.1em 0.5em;
+}
+.scorestable td
+{
+	font-size: small;
+	padding: 0.1em 0.5em;
+}
+.empstatus th { text-align: left; }
+.empstatus td { text-align: right; }
+
+.mnormal { color: #000000; }
+.mdisabled { color: yellow; }
+.mself { color: aqua; }
+.mclan { color: #9FBFDF; }
+.mally { color: #7F9FDF; }
+.mwar { color: #FF8000; }
+.mprotected { color: #99FFBB; }
+.mdead { color: #FF0000; }
+.madmin { color: #FF9FFF; }
+
+.cgood { color: lime; }
+.cwarn { color: yellow; }
+.cbad { color: red; }
+.cneutral { color: white; }
+
+.era1
+{
+	color: #000000;
+	background-color: #677085;
+	font-size: large;
+}
+.era2
+{
+	color: #000000;
+	background-color: #677085;
+	font-size: large;
+}
+.era3
+{
+	color: #000000;
+	background-color: #677085;
+	font-size: large;
+}
+.era0
+{
+	color: #000000;
+	background-color: #677085;
+	font-size: large;
+}
+.al { text-align: left; }
+.ac { text-align: center; }
+.ar { text-align: right; }

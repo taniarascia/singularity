@@ -1,0 +1,105 @@
+QM Promisance Install Guide
+$Id: INSTALL 1985 2014-10-01 16:33:41Z quietust $
+
+-------------------
+System Requirements
+-------------------
+
+* PHP 5.2 or greater, including CLI binary, with php.ini settings:
+** safe_mode = off
+** register_globals = off
+** magic_quotes_* = off
+* Crontab access for running shell scripts (optional)
+* PHP extensions "gd" and "pdo"
+* One of the following databases:
+** MySQL 5.0 or greater with InnoDB, plus PHP extension "pdo_mysql"
+** PostgreSQL 8.1 or greater, plus PHP extension "pdo_pgsql"
+** SQLite 3 using PHP extension "pdo_sqlite", requires PHP 5.3 or later
+
+
+-------------------------
+Installation Instructions
+-------------------------
+
+1. Extract QM Promisance to its own path, one visible to your web
+   server.
+
+2. Create your database, depending on the type of database you are
+   using.
+
+   MySQL:
+     Create a new database using the query "CREATE DATABASE db_name
+     DEFAULT CHARACTER SET=utf8", replacing db_name with the name you
+     wish to use. If you cannot do this (e.g. if you are using shared
+     web hosting), you may instead use an existing database and define
+     a unique prefix to add to each table's name (see step 3 below).
+
+   PostgreSQL:
+     Create a new database using the query "CREATE DATABASE db_name" or
+     the shell command "createdb db_name", replacing db_name with the
+     name you wish to use. If you cannot do this (e.g. if you are using
+     shared web hosting), you may instead use an existing database and
+     define a unique prefix to add to the name of each table and
+     sequence (see step 3 below).
+
+   SQLite:
+     Create a database file in the directory in which you wish to store
+     your game's data. Ensure that your webserver has write access to
+     both the database file and the directory in which it resides. This
+     directory need not actually be accessible via http, but if such a
+     configuration is not possible, the directory should at least be
+     protected using a '.htaccess' file.
+
+3. Edit config.php to your liking. Note that if you have chosen to add
+   a prefix to your database table names, you must configure it here.
+   See the README file for detailed descriptions of all available
+   configuration options. Ensure that the database login you configure
+   has sufficient permissions - notably, it should permit SELECT,
+   INSERT, UPDATE, DELETE, and TRUNCATE, as well as CREATE and DROP
+   during initial setup.
+
+   MySQL:
+     Set DB_TYPE to 'mysql'. If you are running on a UNIX system with a
+     locally hosted database, set DB_SOCK to the location of MySQL's
+     socket file ('/tmp/mysql.sock' on most systems), otherwise set
+     DB_HOST to your database server's hostname or IP address. If MySQL
+     is running on a port other than 3306, specify it in DB_PORT.
+
+   PostgreSQL:
+     Set DB_TYPE to 'pgsql'. If you are running on a UNIX system with a
+     locally hosted database, set DB_SOCK to the path of PostgreSQL's
+     socket file (usually '/tmp' or '/var/run/postgresql'), otherwise
+     set DB_HOST to your database server's hostname or IP address. If
+     PostgreSQL is running on a port other than 5432, specify it in
+     DB_PORT.
+
+   SQLite:
+     Set DB_TYPE to 'sqlite', then set DB_SOCK to the location of the
+     database file you created in step 2.
+
+4. Move setup.php from the install/ subdirectory into the game's base
+   directory (i.e. to the same location as config.php), then browse to
+   it in your web browser. Enter the information for the Administrator
+   account and specify the start, cooldown, and stop dates for the
+   first round of the game.
+
+   Once this has been completed, either move setup.php back into the
+   install/ subdirectory or delete it outright, as running this script
+   again will permanently destroy all game data, including all user
+   accounts and round history accumulated.
+
+5. If you disabled both TURNS_CRONTAB and TURNS_CRONLOG in config.php,
+   skip this step.
+
+   Make a crontab entry to run the turns script:
+   "/usr/local/bin/php /path/to/turns.php >> /path/to/logfile"
+   substituting the proper path to the PHP CLI binary and the path
+   to a logfile where you wish to save turn reports.
+   If TURNS_CRONTAB is enabled, schedule it according to the settings
+   you chose in config.php, otherwise schedule it to run infrequently,
+   such as once per day.
+
+
+All further game management can be performed in-game by logging in
+using the Administrator account you created in step 4 (or any
+additional accounts you may wish to designate).
