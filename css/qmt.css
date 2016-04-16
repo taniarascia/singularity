@@ -10,7 +10,9 @@
 }
 html {
 	color: rgba(255, 255, 255, .7);
-	background: #121314;
+	background: linear-gradient(#160927, #582768, #FBAB9E);
+	background-size: 130%;
+	/* background: url(http://montco.happeningmag.com/wp-content/uploads/2013/08/night-sky-hd-wallpaper-2.jpg) no-repeat center center / cover; */
 	font-size: 1rem;
 	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 	margin: 0;
@@ -146,43 +148,43 @@ th {
 }
 .empstatus td {
 	text-align: right;
-	color: #fff;
+	color:  #9FBFDF;
 }
 .mnormal {
 	color: white;
 }
 .mdisabled {
-	color: #FF4700;
+	color: #ffed61;
 }
 .mself {
 	color: #527FBC;
 }
 .mclan {
-	color: #9FBFDF;
+	color: #F54F2C;
 }
 .mally {
-	color: #63A1C2;
+	color: #1B9590;
 }
 .mwar {
-	color: #DE0D57;
+	color: #DD1033;
 }
 .mprotected {
 	color: #2BCF4A;
 }
 .mdead {
-	color: #DE0D57;
+	color: #000;
 }
 .madmin {
-	color: #cc99cc;
+	color: #24A4BD;
 }
 .cgood {
 	color: #2BCF4A;
 }
 .cwarn {
-	color: #ffeead;
+	color: #ffed61;
 }
 .cbad {
-	color: #DE0D57;
+	color: #DD1033;
 }
 .cneutral {
 	color: white;
@@ -194,17 +196,17 @@ th {
 }
 .era2 {
 	color: white;
-	background-color: maroon;
+	background-color: #1C1C1F;
 	font-size: large;
 }
 .era3 {
 	color: white;
-	background-color: #005F00;
+	background-color: #1C1C1F;
 	font-size: large;
 }
 .era0 {
 	color: white;
-	background-color: maroon;
+	background-color: #1C1C1F;
 	font-size: large;
 }
 .al {
@@ -214,18 +216,37 @@ th {
 	padding: 10px;
 	text-align: center;
 }
+.ac h2 {
+	font-size: 32px;
+	font-weight: normal;
+	margin-top: 0;
+}
 .ar {
 	text-align: right;
 }
 .container {
+	background: rgba(20,20,20,.85);
+	max-width: 450px;
+	padding: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 4px;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.1);
+}
+.container-form {
 	max-width: 400px;
-	padding: 0 15px;
+	padding: 15px;
 	margin-left: auto;
 	margin-right: auto
 }
-.container [type=text],
-.container [type=password] {
-	width: 100%;
+.container-form [type=text],
+.container-form [type=password] {
+	padding: 10px;
+	border-radius: 40px;
+}
+.container-form [type=submit] {
+	padding: 15px 20px;
+	font-size: 1.2rem;
 }
 .button,
 [type=button],
@@ -286,7 +307,7 @@ button:before {
 [type=password],
 select,
 textarea {
-	display: block;
+	display: inline-block;
 	background: #1C1C1F;
 	border: 1px solid #222326;
 	border-radius: 6px;
@@ -309,10 +330,21 @@ select:hover,
 textarea:hover {
 	background: #121212;
 }
+label {
+	font-weight: 600;
+	max-width: 100%;
+	display: block;
+	text-align: left;
+	margin: .5rem 2rem;
+	text-transform: uppercase;
+	font-size: .9rem;
+
+}
 [type=text]:focus,
-[type=password:focus,
+[type=password]:focus,
 select:focus,
 textarea:focus {
+	background: #121212;
 	border: 1px solid #2E4AA6;
 	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1), 0 0 6px #2E4AA6;
 }

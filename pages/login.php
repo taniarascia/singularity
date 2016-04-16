@@ -136,18 +136,31 @@ if (strlen(COUNTER_TEMPLATE) > 0)
 }
 else	$count_data = '<b>'. $num .'</b>';
 ?>
-<h2><?php echo GAME_TITLE; ?></h2>
+<style>
+	html {
+		height: 100%;
+		width: 100%;
+		background: #000 url(images/space.jpg) no-repeat center center / cover;
+	}
+</style>
+
+
+<!--<h2><?php echo GAME_TITLE; ?></h2>-->
+<div class="container">
+	<h2> <?php echo GAME_TITLE; ?></h2>
+	<p>Nothing says "Space" like a medieval fantasy game!</p>
 <?php echo lang('LOGIN_VERSION', GAME_VERSION); ?><br />
 <?php echo lang('LOGIN_DATE_RANGE', gmdate('F j', $world->round_time_begin), gmdate('F j', $world->round_time_end)); ?><br />
 <?php echo lang('LOGIN_COUNTER', $count_data); ?><br />
 <?php
 notices(1);
 ?>
-<div class="container">
+
+<div class="container-form">
 <form method="post" action="?location=login">
 <div>
-<?php echo lang('LABEL_USERNAME'); ?> <input type="text" name="login_username" size="8" /><br />
-<?php echo lang('LABEL_PASSWORD'); ?> <input type="password" name="login_password" size="8" /><br />
+	<label for="login-username"><?php echo lang('LABEL_USERNAME'); ?></label> <input type="text" name="login_username" size="8" /><br />
+	<label for="login_password"><?php echo lang('LABEL_PASSWORD'); ?></label> <input type="password" name="login_password" size="8" /><br />
 <input type="hidden" name="action" value="login" /><input type="submit" value="<?php echo lang('LOGIN_SUBMIT'); ?>" />
 </div>
 </form>
@@ -162,7 +175,8 @@ if (CLAN_ENABLE)
 echo '<br />';
 echo '<a href="?location=topplayers"><b>'. lang('LOGIN_TOPPLAYERS') .'</b></a><br />';
 echo '<a href="?location=history"><b>'. lang('LOGIN_HISTORY') .'</b></a><br />';
-echo '<a href="?location=pguide"><b>'. lang('LOGIN_GUIDE') .'</b></a><br />';
+echo '<a href="?location=pguide"><b>'. lang('LOGIN_GUIDE') .'</b></a><br /></div>';
 
 $html->end();
+
 ?>
