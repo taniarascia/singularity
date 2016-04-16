@@ -416,7 +416,7 @@ $lang['en-US'] += array(
 	'HEADER_EMPIRE_DELETED'		=> 'Your empire has been marked for deletion. Thanks for playing!',
 
 	// includes/guide
-	'GUIDE_HEADER'			=> 'Promisance Guide',
+	'GUIDE_HEADER'			=> 'Singularity Guide',
 	'GUIDE_INTRO'			=> 'Getting Started',
 	'GUIDE_INFO'			=> 'Information',
 	'GUIDE_TURNS'			=> 'Spending Turns',
@@ -646,12 +646,12 @@ $lang['en-US'] += array(
 	'EFFECT_PERMANENT'		=> 'Permanent',
 
 	// other
-	'HTML_TITLE'			=> 'Promisance - %1$s',
-	'HTML_FOOTER'			=> 'QM Promisance v%1$s<br />Copyright © 2001-2014 <a href="http://www.qmtpro.com/">QMT Productions</a>',
+	'HTML_TITLE'			=> 'Singularity - %1$s',
+	'HTML_FOOTER'			=> 'Singularity v%1$s<br />Copyright © 2001-2014 <a href="http://www.qmtpro.com/">QMT Productions</a>',
 	'HTML_DEBUG_FOOTER'		=> 'Page generated in %1$sms using %2$s/%3$s bytes and %4$s queries',
 	'HTML_LINK_CREDITS'		=> 'View Credits',
 	'HTML_LINK_LOGIN'		=> 'Return to Login',
-	'MENU_HEADER_TOP'		=> 'Promisance',
+	'MENU_HEADER_TOP'		=> 'Singularity',
 	'MENU_HEADER_INFO'		=> 'Information',
 	'MENU_LINK_STATUS'		=> 'Empire Status',
 	'MENU_LINK_SCORES'		=> 'Scores',
@@ -701,8 +701,8 @@ $lang['en-US'] += array(
 	'HTML_BUTTON_COPY'		=> '&gt;',
 	'STATBAR_NEWMAIL'		=> 'New Mail!',
 	'STATBAR_MAILBOX'		=> 'Mailbox',
-	'EMAIL_FROM'			=> 'QM Promisance Web Game',
-	'VALIDATION_EMAIL_SUBJECT'	=> 'QM Promisance Signup for %1$s - %2$s',
+	'EMAIL_FROM'			=> 'Singularity Game',
+	'VALIDATION_EMAIL_SUBJECT'	=> 'Singularity Signup for %1$s - %2$s',
 	'VALIDATION_EMAIL_BODY'		=> <<<END_MESSAGE
 Thank you for signing up for %1\$s!
 
