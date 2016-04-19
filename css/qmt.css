@@ -155,13 +155,13 @@ th {
 	color: white;
 }
 .mdisabled {
-	color: #ffed61;
+	color: #ddd;
 }
 .mself {
-	color: #527FBC;
+	color: #ffed61;
 }
 .mclan {
-	color: #F54F2C;
+	color: #527FBC;
 }
 .mally {
 	color: #1B9590;
@@ -176,7 +176,7 @@ th {
 	color: #DD1033;
 }
 .madmin {
-	color: #24A4BD;
+	color: #F54F2C;
 }
 .cgood {
 	color: #2BCF4A;
