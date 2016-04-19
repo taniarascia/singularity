@@ -259,11 +259,12 @@ table .era1 {
 [type=submit],
 a.button,
 button {
+	-webkit-appearance: none;
 	display: inline-block;
 	line-height: 1;
-	border: 3px solid #2E4AA6;
+	border: 3px solid #2E4AA6 !important;
 	border-radius: 30px;
-	background: #2E4AA6;
+	background: #2E4AA6 !important;
 	color: #fff;
 	font-weight: bold;
 	font-size: .8rem;
@@ -293,8 +294,8 @@ a.button:hover,
 button:active,
 button:focus,
 button:hover {
-	border: 3px solid #17338E;
-	background: #17338E;
+	border: 3px solid #17338E !important;
+	background: #17338E !important;
 	color: #fff;
 	text-decoration: none
 }
