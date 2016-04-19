@@ -141,7 +141,7 @@ else	$count_data = '<b>'. $num .'</b>';
 	html {
 		min-height: 100vh;
 		width: 100%;
-		background: #000 url(images/max.jpg) no-repeat center center / cover;
+		background: #000 url(images/max2.jpg) no-repeat center center / cover;
 	}
 	[type=text], [type=password] {
 		background: transparent;
