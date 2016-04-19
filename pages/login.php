@@ -125,7 +125,6 @@ if (prom_session::check())
 }
 
 $html = new prom_html_compact();
-echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
 $html->begin('LOGIN_TITLE');
 
 $num = $db->queryCell('SELECT COUNT(*) FROM '. EMPIRE_TABLE .' WHERE u_id != 0');
