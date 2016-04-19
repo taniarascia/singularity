@@ -17,6 +17,7 @@ html {
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
 	line-height: 1.4;
+	min-height: 100%;
 }
 body {
 	margin: 0;
