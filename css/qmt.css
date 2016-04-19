@@ -10,23 +10,26 @@
 }
 html {
 	color: rgba(255, 255, 255, .7);
-	background: linear-gradient(#160927, #582768, #FBAB9E);
-	background-size: 130%;
-	/* background: url(http://montco.happeningmag.com/wp-content/uploads/2013/08/night-sky-hd-wallpaper-2.jpg) no-repeat center center / cover; */
+	/*background: linear-gradient(#160927, #582768, #FBAB9E);*/
+	background: url(../images/max2.jpg) no-repeat center center / cover;
 	font-size: 1rem;
 	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
 	line-height: 1.4;
-	min-height: 100vh;
+}
+body {
+	margin: 0;
 }
 #content {
 	margin-left: 200px;
+	height: 100%;
 }
 #sidebar {
 	float: left;
 	width: 200px;
 	overflow: auto;
+	margin-top: -93px;
 }
 #sidebar::after {
 	clear: both;
@@ -39,7 +42,7 @@ html {
 
 a {
 	text-decoration: none;
-	color: #efefef;
+	color: #ffeead;
 }
 a:hover {
 	color: #FFDE61;
@@ -83,7 +86,7 @@ th {
 .menu {
 	padding-top: 8px;
 	padding-bottom: 20px;
-	background: rgba(0,0,0,.55);
+	background: rgba(0, 0, 0, .65);
 }
 .menu ul {
 	margin: 0;
@@ -95,7 +98,7 @@ th {
 
 .menu li {
 	padding-left: 8px;
-	color: #4A4A52;
+	color: rgba(255,255,255,.5);
 	text-align: left;
 	font-weight: bold;
 	text-transform: uppercase;
@@ -116,14 +119,18 @@ th {
 	font-size: .9rem;
 }
 .menu ul li ul li a:hover {
-	background: #512DA8;
+	background: #2C48AC;
 	/*linear-gradient(to left, #512DA8, #673AB7); #7A1DFF*/
 	color: #fff;
 }
 th {
 	padding: 4px 4px;
 }
+table .era1 {
+	margin-bottom: 25px;
+}
 .inputtable {
+	margin-top: 25px;
 	padding: 15px;
 }
 .inputtable td {
@@ -149,7 +156,7 @@ th {
 }
 .empstatus td {
 	text-align: right;
-	color:  #9FBFDF;
+	color: #9FBFDF;
 }
 .mnormal {
 	color: white;
@@ -218,7 +225,7 @@ th {
 	text-align: center;
 }
 .ac h2 {
-	font-size: 32px;
+	font-size: 38px;
 	font-weight: normal;
 	margin-top: 0;
 }
@@ -226,13 +233,14 @@ th {
 	text-align: right;
 }
 .container {
-	background: rgba(20,20,20,.85);
+	background: rgba(20, 20, 20, .85);
 	max-width: 450px;
 	padding: 20px;
+	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
 	border-radius: 4px;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.1);
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, .1);
 }
 .container-form {
 	max-width: 400px;
@@ -339,7 +347,6 @@ label {
 	margin: .5rem 2rem;
 	text-transform: uppercase;
 	font-size: .9rem;
-
 }
 [type=text]:focus,
 [type=password]:focus,

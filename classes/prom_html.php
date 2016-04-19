@@ -90,6 +90,7 @@ class prom_html_full extends prom_html
 <html xmlns="http://www.w3.org/1999/xhtml" lang="<?php echo lang('LANG_CODE'); ?>" xml:lang="<?php echo lang('LANG_CODE'); ?>" dir="<?php echo lang('LANG_DIR'); ?>">
 <head>
 <title><?php echo lang('HTML_TITLE', $title); ?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <link rel="stylesheet" type="text/css" href="css/<?php echo $this->getstyle(); ?>" />
 
 <?php
@@ -277,6 +278,7 @@ class prom_html_compact extends prom_html
 <html xmlns="http://www.w3.org/1999/xhtml" lang="<?php echo lang('LANG_CODE'); ?>" xml:lang="<?php echo lang('LANG_CODE'); ?>" dir="<?php echo lang('LANG_DIR'); ?>">
 <head>
 <title><?php echo lang('HTML_TITLE', $title); ?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <link rel="stylesheet" type="text/css" href="css/<?php echo $this->getstyle(); ?>" />
 <?php
 		$this->addStyles();
