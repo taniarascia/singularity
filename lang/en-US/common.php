@@ -647,7 +647,7 @@ $lang['en-US'] += array(
 
 	// other
 	'HTML_TITLE'			=> 'Singularity - %1$s',
-	'HTML_FOOTER'			=> 'Singularity v%1$s<br />Copyright © 2001-2014 <a href="http://www.qmtpro.com/">QMT Productions</a>',
+	'HTML_FOOTER'			=> 'Copyright © 2001 <a href="http://www.qmtpro.com/">QMT Productions</a>',
 	'HTML_DEBUG_FOOTER'		=> 'Page generated in %1$sms using %2$s/%3$s bytes and %4$s queries',
 	'HTML_LINK_CREDITS'		=> 'View Credits',
 	'HTML_LINK_LOGIN'		=> 'Return to Login',

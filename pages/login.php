@@ -154,8 +154,8 @@ else	$count_data = '<b>'. $num .'</b>';
 <div class="container">
 	<h2> <?php echo GAME_TITLE; ?></h2>
 	<p>Nothing says "Space" like a medieval fantasy game!</p>
-<?php echo lang('LOGIN_VERSION', GAME_VERSION); ?><br />
-<?php echo lang('LOGIN_DATE_RANGE', gmdate('F j', $world->round_time_begin), gmdate('F j', $world->round_time_end)); ?><br />
+<?php //echo lang('LOGIN_VERSION', GAME_VERSION); ?>
+<?php // echo lang('LOGIN_DATE_RANGE', gmdate('F j', $world->round_time_begin), gmdate('F j', $world->round_time_end)); ?><br />
 <?php echo lang('LOGIN_COUNTER', $count_data); ?><br />
 <?php
 notices(1);

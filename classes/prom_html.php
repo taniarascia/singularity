@@ -112,7 +112,7 @@ class prom_html_full extends prom_html
 		$dur = microtime(TRUE) - $this->starttime;
 ?>
 <br /><?php echo lang('HTML_FOOTER', GAME_VERSION); ?>
-<br /><a href="?location=credits"><?php echo lang('HTML_LINK_CREDITS'); ?></a>
+<a href="?location=credits"><?php echo lang('HTML_LINK_CREDITS'); ?></a>
 <?php
 		if (DEBUG_FOOTER)
 			echo '<br /><br />'.lang('HTML_DEBUG_FOOTER', round($dur * 1000, 1), number(memory_get_usage()), number(memory_get_peak_usage()), $db ? $db->getQueryCount() : 0);
