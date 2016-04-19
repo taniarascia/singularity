@@ -91,6 +91,7 @@ class prom_html_full extends prom_html
 <head>
 <title><?php echo lang('HTML_TITLE', $title); ?></title>
 <link rel="stylesheet" type="text/css" href="css/<?php echo $this->getstyle(); ?>" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <?php
 		$this->addStyles();
 		$this->addScripts();
