@@ -233,16 +233,13 @@ table .era1 {
 	text-align: right;
 }
 .container {
-	max-width: 450px;
-	padding: 20px;
-	margin-top: 20px;
+
+	margin-top: 10px;
 	margin-left: auto;
 	margin-right: auto;
-	border-radius: 4px;
-	box-shadow: 2px 2px 2px rgba(0, 0, 0, .1);
 }
 .container-form {
-	max-width: 400px;
+	max-width: 450px;
 	padding: 15px;
 	margin-left: auto;
 	margin-right: auto
