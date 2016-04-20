@@ -653,6 +653,7 @@ $lang['en-US'] += array(
 	'HTML_LINK_LOGIN'		=> 'Return to Login',
 	'MENU_HEADER_TOP'		=> 'Singularity',
 	'MENU_HEADER_INFO'		=> 'Information',
+	'MENU_LINK_HOME'		=> 'Home',
 	'MENU_LINK_STATUS'		=> 'Empire Status',
 	'MENU_LINK_SCORES'		=> 'Scores',
 	'MENU_LINK_GRAVEYARD'		=> 'Graveyard',

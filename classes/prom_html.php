@@ -128,6 +128,7 @@ class prom_html_full extends prom_html
 	private function printMenuBar ()
 	{
 		$menu_info = array();
+		$menu_info[] = array('label' => lang('MENU_LINK_HOME'), 'location' => 'main');
 		$menu_info[] = array('label' => lang('MENU_LINK_STATUS'), 'location' => 'status');
 		$menu_info[] = array('label' => lang('MENU_LINK_SCORES'), 'location' => 'scores');
 		$menu_info[] = array('label' => lang('MENU_LINK_GRAVEYARD'), 'location' => 'graveyard');
