@@ -30,7 +30,6 @@ body {
 	float: left;
 	width: 200px;
 	overflow: auto;
-	margin-top: -93px;
 }
 #sidebar::after {
 	clear: both;
