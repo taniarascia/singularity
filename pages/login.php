@@ -153,7 +153,7 @@ else	$count_data = '<b>'. $num .'</b>';
 <!--<h2><?php echo GAME_TITLE; ?></h2>-->
 <div class="container">
 	<h2> <?php echo GAME_TITLE; ?></h2>
-	<p>Nothing says "Space" like a medieval fantasy game!</p>
+	<p><a href="http://animorphsforum.com/ebooks/covers/bk9.jpg">No place to run. No place to hide . . .</a></p>
 <?php //echo lang('LOGIN_VERSION', GAME_VERSION); ?>
 <?php // echo lang('LOGIN_DATE_RANGE', gmdate('F j', $world->round_time_begin), gmdate('F j', $world->round_time_end)); ?><br />
 <?php echo lang('LOGIN_COUNTER', $count_data); ?><br />
