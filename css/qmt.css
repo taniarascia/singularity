@@ -60,7 +60,7 @@
   }
   #sidebar h2 {
   display: none !important;
-}
+  }
 }
 
 
@@ -85,7 +85,7 @@ body {
 }
 
 #sidebar h2 {
-  display: block !important;
+  display: block;
 }
 
 #content {
