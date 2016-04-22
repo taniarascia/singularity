@@ -24,7 +24,7 @@
   }
   .menu ul.active {
     display: block;
-    margin-top: 50px !important;
+    margin-top: 8vh !important;
   }
   .menu ul li {
     width: 100% !important;
@@ -40,13 +40,13 @@
     font-size: 1rem !important;
   }
   #content {
-    margin-top: 10vh !important;
+    margin-top: 8vh !important;
     margin-left: 0 !important;
   }
   #toggle {
     display: block !important;
     cursor: pointer;
-    height: 10vh;
+    height: 8vh;
     color: white;
     font-size: 2rem;
     z-index: 2;
@@ -56,7 +56,7 @@
     background: #2E4AA6;
     width: 100%;
     text-align: center;
-    line-height: 10vh;
+    line-height: 8vh;
   }
 }
 
