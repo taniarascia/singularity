@@ -58,11 +58,11 @@
     text-align: center;
     line-height: 8vh;
   }
-}
-
-#sidebar h2 {
+  #sidebar h2 {
   display: none !important;
 }
+}
+
 
 #toggle {
   display: none;
