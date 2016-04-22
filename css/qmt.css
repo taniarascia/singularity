@@ -40,7 +40,7 @@
     font-size: 1rem !important;
   }
   #content {
-    margin-top: 45px !important;
+    margin-top: 10vh !important;
     margin-left: 0 !important;
   }
   #toggle {
@@ -48,7 +48,7 @@
     cursor: pointer;
     height: 10vh;
     color: white;
-    font-size: 10vh;
+    font-size: 2rem;
     z-index: 2;
     position: fixed;
     top: 0;
