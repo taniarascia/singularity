@@ -9,7 +9,7 @@
   height: 16px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-device-width: 600px) {
   .menu {
     padding-top: 0 !important;
     position: fixed;
