@@ -60,6 +60,10 @@
   }
 }
 
+#sidebar h2 {
+  display: none !important;
+}
+
 #toggle {
   display: none;
 }
@@ -78,6 +82,10 @@ html {
 
 body {
   margin: 0;
+}
+
+#sidebar h2 {
+  display: block !important;
 }
 
 #content {
