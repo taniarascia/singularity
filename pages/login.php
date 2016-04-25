@@ -156,7 +156,7 @@ else	$count_data = '<b>'. $num .'</b>';
   <p><a href="http://animorphsforum.com/ebooks/covers/bk28.jpg">Change is a good thing. A <em>very</em> good thing . . .</a></p>
 <?php //echo lang('LOGIN_VERSION', GAME_VERSION); ?>
 <?php // echo lang('LOGIN_DATE_RANGE', gmdate('F j', $world->round_time_begin), gmdate('F j', $world->round_time_end)); ?><br />
-<?php echo lang('LOGIN_COUNTER', $count_data); ?><br />
+  <span style="font-size: 1.4rem; color: #2BCF4A;"><?php echo lang('LOGIN_COUNTER', $count_data); ?></span> Active Empires<br />
 <?php
 notices(1);
 ?>
@@ -172,15 +172,16 @@ notices(1);
 </div>
 <?php
 if (ROUND_SIGNUP && !(SIGNUP_CLOSED_USER && SIGNUP_CLOSED_EMPIRE))
-	echo '<a href="?location=signup"><b>'. lang('LOGIN_SIGNUP') .'</b></a><br />';
+	echo '<a href="?location=signup" class="button"><b>'. lang('LOGIN_SIGNUP') .'</b></a> ';
 else	echo '<b>'. lang('LOGIN_SIGNUP_CLOSED') .'</b><br />';
-echo '<a href="?location=topempires"><b>'. lang('LOGIN_TOPEMPIRES') .'</b></a><br />';
-if (CLAN_ENABLE)
-	echo '<a href="?location=topclans"><b>'. lang('LOGIN_TOPCLANS') .'</b></a><br />';
-echo '<br />';
-echo '<a href="?location=topplayers"><b>'. lang('LOGIN_TOPPLAYERS') .'</b></a><br />';
-echo '<a href="?location=history"><b>'. lang('LOGIN_HISTORY') .'</b></a><br />';
-echo '<a href="?location=pguide"><b>'. lang('LOGIN_GUIDE') .'</b></a><br /></div>';
+echo '<a href="?location=topempires" class="button"><b>'. lang('LOGIN_TOPEMPIRES') .'</b></a><br />';
+//if (CLAN_ENABLE)
+//	echo '<a href="?location=topclans" class="button"><b>'. lang('LOGIN_TOPCLANS') .'</b></a><br />';
+//echo '<br />';
+echo '<a href="?location=topplayers" class="button"><b>'. lang('LOGIN_TOPPLAYERS') .'</b></a> ';
+// echo '<a href="?location=history" class="button"><b>'. lang('LOGIN_HISTORY') .'</b></a><br />';
+echo '<a href="?location=pguide" class="button"><b>'. lang('LOGIN_GUIDE') .'</b></a><br />';
+echo '<a href="forum" class="button"><b>'. lang('LOGIN_FORUM') .'</b></a><br /></div>';
 
 $html->end();
 
