@@ -97,23 +97,9 @@ class prom_html_full extends prom_html
 		$this->addStyles();
 		$this->addScripts();
 ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script>
-    $(document).ready(function () {
-      // Toggle nav
-    $('#toggle').click(function (e) {
-      if ($('.menu ul').hasClass('active')) {
-        $('.menu ul').removeClass('active');
-      } else {
-        $('.menu ul').addClass('active');
-      }
-      e.stopPropagation();
-    });
-    });
-</script>
 </head>
 <body>
-  <div id="toggle">Menu</div>
+
 <div id="sidebar"><?php
 		$this->printMenuBar();
 ?></div>
