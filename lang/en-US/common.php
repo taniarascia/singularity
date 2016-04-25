@@ -388,7 +388,7 @@ $lang['en-US'] += array(
 	// includes/header
 	'HEADER_LOGGED_IN_AS'		=> 'Currently logged in as user <span style="font-size:large">%1$s</span>, empire <span style="font-size:large">%2$s</span>',
 	'HEADER_GAME_NEWS'		=> '<b>Game News:</b>',
-	'HEADER_GUIDE'			=> '[Game Guide]',
+	'HEADER_GUIDE'			=> 'Game Guide',
 	'HEADER_REFRESH'		=> '[Refresh]',
 
 	'VACATION_NOT_LOCKED'		=> 'This empire was placed on vacation %1$s ago.<br />It will be frozen in %2$s.<br />',
