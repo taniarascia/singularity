@@ -496,11 +496,11 @@ if ($action == 'attack') do
 	if (($emp2->e_flags & EFLAG_DELETE) || ($emp2->e_networth == 0))
 		$alive = FALSE;		// deleted empires cannot defend themselves
 
-	if (CLAN_ENABLE && ($alive) && ($emp2->e_networth < $emp1->e_networth / $netmult_refuse))
+	/*if (CLAN_ENABLE && ($alive) && ($emp2->e_networth < $emp1->e_networth / $netmult_refuse))
 	{
 		notice(lang('MILITARY_REFUSE_SMALL'));
 		break;
-	}
+	}*/
 	if (($alive) && ($emp2->e_networth > $emp1->e_networth * $netmult_refuse))
 	{
 		notice(lang('MILITARY_REFUSE_LARGE'));
