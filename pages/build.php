@@ -105,8 +105,9 @@ if ($action == 'build') do
 notices();
 ?>
 <?php echo lang('BUILD_HEADER', money($buildcost), number($buildrate), number($canbuild)); ?><br />
-<form method="post" action="?location=build">
 <table class="inputtable">
+<form method="post" action="?location=build">
+
 <tr><th class="al"><?php echo lang('COLUMN_STRUCTURE'); ?></th>
     <th class="ar"><?php echo lang('COLUMN_OWNED'); ?></th>
     <th class="ar"><?php echo lang('COLUMN_CANBUILD'); ?></th>
@@ -126,10 +127,11 @@ foreach ($bldtypes as $type)
     <td class="ar"><?php echo number($emp1->e_freeland); ?></td>
     <td colspan="2"></td></tr>
 <tr><td colspan="4" class="ac"><input type="hidden" name="action" value="build" /><input type="submit" value="<?php echo lang('BUILD_SUBMIT'); ?>" /></td></tr>
-</table>
+
 </form>
 <br />
 <a href="?location=demolish" class="button"><?php echo lang('BUILD_LINK_DEMOLISH'); ?></a>
+</table>
 <?php
 page_footer();
 ?>
