@@ -128,7 +128,8 @@ foreach ($bldtypes as $type)
 <tr><td colspan="4" class="ac"><input type="hidden" name="action" value="build" /><input type="submit" value="<?php echo lang('BUILD_SUBMIT'); ?>" /></td></tr>
 </table>
 </form>
-<a href="?location=demolish"><?php echo lang('BUILD_LINK_DEMOLISH'); ?></a>
+<br />
+<a href="?location=demolish" class="button"><?php echo lang('BUILD_LINK_DEMOLISH'); ?></a>
 <?php
 page_footer();
 ?>
