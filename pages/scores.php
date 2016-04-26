@@ -87,7 +87,7 @@ for ($topten = 0; $topten < 2; $topten++)	// first pass for 1-10, second pass fo
 	$sql = 'SELECT e_rank,e_name,e_id,e_land,e_networth,c_id,e_race,e_era,e_flags,e_turnsused,e_vacation,e_kills,e_score FROM '. EMPIRE_TABLE .' WHERE u_id > 0 ORDER BY e_rank ASC';
 	if ($topten == 0)
 		$sql = $db->setLimit($sql, 10);
-	else	$sql = $db->setLimit($sql, 30, max(10, $emp1->e_rank - 15));
+	else	$sql = $db->setLimit($sql, 100, max(10, $emp1->e_rank - 15));
 	$q = $db->query($sql) or warning('Failed to fetch empire list', 0);
 	$scores = $q->fetchAll();
 	if (count($scores) == 0)
