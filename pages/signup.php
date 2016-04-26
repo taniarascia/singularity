@@ -263,23 +263,13 @@ if ($action == 'signup') do
 $html->begin('SIGNUP_TITLE');
 ?>
 <h2><?php echo lang('SIGNUP_HEADER'); ?></h2>
+<div style="max-width: 800px;margin:auto;">
 <?php
 if ($reg)
 	echo lang('SIGNUP_WELCOME_BACK', GAME_TITLE) .'<br />';
-else	echo lang('SIGNUP_WELCOME_FIRST', GAME_TITLE, GRAVEYARD_DISCLOSE ? 'SIGNUP_WELCOME_DISCLOSE' : 'SIGNUP_WELCOME_NO_DISCLOSE') .'<br />';
+else	echo lang('SIGNUP_WELCOME_FIRST', GAME_TITLE, GRAVEYARD_DISCLOSE ? 'SIGNUP_WELCOME_DISCLOSE' : 'SIGNUP_WELCOME_NO_DISCLOSE') .'<br /><br />';
 ?>
-<b><?php echo lang('SIGNUP_WARN_RULES'); ?></b><br /><br />
-<table class="inputtable">
-<caption style="font-size:large;font-weight:bold"><?php echo lang('SIGNUP_HEADER_RULES'); ?></caption>
-<tr><th style="font-size:large"><?php echo lang('SIGNUP_HEADER_MULTIS'); ?></th></tr>
-<tr><td class="ac"><?php echo lang('SIGNUP_RULES_MULTIS', plural(EMPIRES_PER_USER, 'SIGNUP_MULTIS_SINGLE', 'SIGNUP_MULTIS_PLURAL')); ?></td></tr>
-<tr><th style="font-size:large"><?php echo lang('SIGNUP_HEADER_USE'); ?></th></tr>
-<tr><td class="ac"><?php echo lang('SIGNUP_RULES_USE'); ?></td></tr>
-<tr><th style="font-size:large"><?php echo lang('SIGNUP_HEADER_SUPPORT'); ?></th></tr>
-<tr><td class="ac"><?php echo lang('SIGNUP_RULES_SUPPORT', GAME_TITLE, MAIL_ADMIN); ?></td></tr>
-<tr><th style="font-size:large"><?php echo lang('SIGNUP_HEADER_EXTRA'); ?></th></tr>
-<tr><td class="ac"><?php echo TXT_RULES; ?></td></tr>
-</table><br />
+
 <?php
 if (VALIDATE_ALLOW) echo '<h3>'. lang('SIGNUP_VALIDATION_REMINDER', MAIL_VALIDATE) .'</h3>';
 // if account creation was successful but empire creation failed
@@ -343,6 +333,19 @@ echo optionlist('signup_race', $racelist, $race);
 <tr><td colspan="2" class="ac"><input type="hidden" name="action" value="signup" /><input type="submit" value="<?php echo lang('SIGNUP_SUBMIT'); ?>" /></td></tr>
 </table>
 </form>
+</div>
+<b><?php echo lang('SIGNUP_WARN_RULES'); ?></b><br /><br />
+<table class="inputtable">
+<caption style="font-size:large;font-weight:bold"><?php echo lang('SIGNUP_HEADER_RULES'); ?></caption>
+<tr><th style="font-size:large"><?php echo lang('SIGNUP_HEADER_MULTIS'); ?></th></tr>
+<tr><td class="ac"><?php echo lang('SIGNUP_RULES_MULTIS', plural(EMPIRES_PER_USER, 'SIGNUP_MULTIS_SINGLE', 'SIGNUP_MULTIS_PLURAL')); ?></td></tr>
+<tr><th style="font-size:large"><?php echo lang('SIGNUP_HEADER_USE'); ?></th></tr>
+<tr><td class="ac"><?php echo lang('SIGNUP_RULES_USE'); ?></td></tr>
+<tr><th style="font-size:large"><?php echo lang('SIGNUP_HEADER_SUPPORT'); ?></th></tr>
+<tr><td class="ac"><?php echo lang('SIGNUP_RULES_SUPPORT', GAME_TITLE, MAIL_ADMIN); ?></td></tr>
+<tr><th style="font-size:large"><?php echo lang('SIGNUP_HEADER_EXTRA'); ?></th></tr>
+<tr><td class="ac"><?php echo TXT_RULES; ?></td></tr>
+</table><br />
 <?php
 $html->end();
 ?>
