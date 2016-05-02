@@ -10,7 +10,10 @@ if (!defined('IN_GAME'))
 
 $title = 'FARM_TITLE';
 
-page_header();
+page_header(); ?>
+<br/><img src="/images/farm.jpg" style="max-width: 550px;"/>
+<br/>
+<?php 
 
 if (ROUND_FINISHED)
 	unavailable(lang('TURNS_UNAVAILABLE_END'));
@@ -42,9 +45,10 @@ if ($action == 'farm') do
 } while (0);
 notices();
 ?>
+
 <?php echo lang('FARM_HEADER', $emp1->era->bldfood, $emp1->era->food); ?>
 
-<br/><img src="http://www.manaleak.com/mtguk/files/2014/02/stp.jpg" style="max-width: 550px;"/>
+
 <form method="post" action="?location=farm">
 <table class="inputtable">
 <tr><td><?php echo lang('FARM_LABEL'); ?></td>

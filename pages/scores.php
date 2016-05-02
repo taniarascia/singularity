@@ -10,7 +10,12 @@ if (!defined('IN_GAME'))
 
 $title = 'SCORES_TITLE';
 
-page_header();
+page_header(); ?>
+
+<br/><img src="/images/score.jpg" style="max-width: 550px;"/>
+<br/>
+
+<?php
 
 function scoreHeader ($color)
 {

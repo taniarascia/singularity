@@ -13,7 +13,12 @@ $title = 'PUBMARKETSELL_TITLE';
 if (($action == 'sell') || ($action == 'remove'))
 	$db->lockGroup(ENT_MARKET);
 
-page_header();
+page_header(); ?>
+
+<br/><img src="/images/public-market.jpg" style="max-width: 550px;"/>
+<br/>
+
+<?php
 
 if (ROUND_FINISHED)
 	unavailable(lang('PUBMARKETSELL_UNAVAILABLE_END'));

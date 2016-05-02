@@ -10,7 +10,12 @@ if (!defined('IN_GAME'))
 
 $title = 'BUILD_TITLE';
 
-page_header();
+page_header(); ?>
+
+<br/><img src="/images/build.jpg" style="max-width: 550px;"/>
+<br/>
+
+<?php
 
 if (ROUND_FINISHED)
 	unavailable(lang('BUILD_UNAVAILABLE_END'));
@@ -105,7 +110,6 @@ if ($action == 'build') do
 notices();
 ?>
 <?php echo lang('BUILD_HEADER', money($buildcost), number($buildrate), number($canbuild)); ?><br />
-<br/><img src="https://s-media-cache-ak0.pinimg.com/736x/51/7f/a2/517fa2b6d8b7f5ce48c002260afd626b.jpg" style="max-width:550px;"/>
 <table class="inputtable">
 <form method="post" action="?location=build">
 

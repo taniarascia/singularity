@@ -10,7 +10,12 @@ if (!defined('IN_GAME'))
 
 $title = 'CASH_TITLE';
 
-page_header();
+page_header(); ?>
+
+<br/><img src="/images/cash.jpg" style="max-width: 550px;"/>
+<br/>
+
+<?php
 
 if (ROUND_FINISHED)
 	unavailable(lang('TURNS_UNAVAILABLE_END'));
@@ -44,7 +49,6 @@ notices();
 ?>
 <?php echo lang('CASH_HEADER', $emp1->era->peasants); ?>
 
-<br/><img src="http://i.jootix.com/o/unnamed--91b0e3f510.jpg" style="max-width: 500px;"/>
 <form method="post" action="?location=cash">
 <table class="inputtable">
 <tr><td><?php echo lang('CASH_LABEL'); ?></td>

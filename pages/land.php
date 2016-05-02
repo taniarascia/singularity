@@ -10,7 +10,12 @@ if (!defined('IN_GAME'))
 
 $title = 'LAND_TITLE';
 
-page_header();
+page_header(); ?>
+
+<br/><img src="/images/land.jpg" style="max-width: 550px;"/>
+<br/>
+
+<?php
 
 if (ROUND_FINISHED)
 	unavailable(lang('TURNS_UNAVAILABLE_END'));
@@ -44,7 +49,6 @@ if ($action == 'explore') do
 notices();
 ?>
 <?php echo lang('LAND_HEADER', plural($emp1->give_land(), 'ACRES_SINGLE', 'ACRES_PLURAL')); ?>
-<br/><img src="http://pic.pilpix.com/18/18150/the-long-and-winding-road.jpg" style="max-width:550px;"/>
 <form method="post" action="?location=land">
 <table class="inputtable">
 <tr><td><?php echo lang('LAND_LABEL'); ?></td>

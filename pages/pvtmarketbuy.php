@@ -10,7 +10,12 @@ if (!defined('IN_GAME'))
 
 $title = 'PVTMARKETBUY_TITLE';
 
-page_header();
+page_header(); ?>
+
+<br/><img src="/images/market.jpg" style="max-width: 550px;"/>
+<br/>
+
+<?php
 
 if (ROUND_FINISHED)
 	unavailable(lang('PVTMARKETBUY_UNAVAILABLE_END'));
