@@ -43,6 +43,8 @@ if ($action == 'cash') do
 notices();
 ?>
 <?php echo lang('CASH_HEADER', $emp1->era->peasants); ?>
+
+<br/><img src="http://i.jootix.com/o/unnamed--91b0e3f510.jpg" style="max-width: 500px;"/>
 <form method="post" action="?location=cash">
 <table class="inputtable">
 <tr><td><?php echo lang('CASH_LABEL'); ?></td>
