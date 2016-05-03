@@ -605,7 +605,7 @@ else
 <table class="inputtable">
 <tr><th colspan="2"><?php echo lang('CLAN_CREATE_LABEL'); ?></th></tr>
 <tr><td class="ar"><?php echo lang('LABEL_CLAN_NAME'); ?></td>
-    <td><input type="text" name="create_name" size="8" maxlength="8" /></td></tr>
+    <td><input type="text" name="create_name" size="10" maxlength="10" /></td></tr>
 <tr><td class="ar"><?php echo lang('LABEL_PASSWORD'); ?></td>
     <td><input type="password" name="create_pass" size="8" /></td></tr>
 <tr><td class="ar"><?php echo lang('LABEL_PASSWORD_VERIFY'); ?></td>
