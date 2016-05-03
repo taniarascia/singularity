@@ -69,7 +69,7 @@ if ($action == 'create') do
 		notice(lang('CLAN_CREATE_NAME_INVALID'));
 		break;
 	}
-	if (strlen($cname) > 8)
+	if (strlen($cname) > 10)
 	{
 		notice(lang('CLAN_CREATE_NAME_TOO_LONG'));
 		break;
