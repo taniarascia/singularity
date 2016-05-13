@@ -153,7 +153,7 @@ else	$count_data = '<b>'. $num .'</b>';
 <!--<h2><?php echo GAME_TITLE; ?></h2>-->
 <div class="container">
 	<h2> <?php echo GAME_TITLE; ?></h2>
-  <p>Round 2 has begun!</p>
+  <p>Round 2 has begun! Congratulations to Mercadia for a landslide victory in Round 1.</p>
 <?php //echo lang('LOGIN_VERSION', GAME_VERSION); ?>
 <?php  echo lang('LOGIN_DATE_RANGE', gmdate('F j', $world->round_time_begin), gmdate('F j', $world->round_time_end)); ?><br />
   <span style="font-size: 1.4rem; color: #2BCF4A;"><?php echo lang('LOGIN_COUNTER', $count_data); ?></span><br />
