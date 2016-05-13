@@ -262,13 +262,14 @@ if ($action == 'signup') do
 } while (0);
 $html->begin('SIGNUP_TITLE');
 ?>
+<div style="max-width: 800px; margin: 0 auto;">
 <h2><?php echo lang('SIGNUP_HEADER'); ?></h2>
-<div style="max-width: 800px;margin:auto;">
 <?php
 if ($reg)
-	echo lang('SIGNUP_WELCOME_BACK', GAME_TITLE) .'<br />';
-else	echo lang('SIGNUP_WELCOME_FIRST', GAME_TITLE, GRAVEYARD_DISCLOSE ? 'SIGNUP_WELCOME_DISCLOSE' : 'SIGNUP_WELCOME_NO_DISCLOSE') .'<br /><br />';
+	echo lang('SIGNUP_WELCOME_BACK', GAME_TITLE) .'<br /><br /><div style="padding: 5px;"></div>';
+else	echo lang('SIGNUP_WELCOME_FIRST', GAME_TITLE, GRAVEYARD_DISCLOSE ? 'SIGNUP_WELCOME_DISCLOSE' : 'SIGNUP_WELCOME_NO_DISCLOSE') .'<br />';
 ?>
+</div>
 
 <?php
 if (VALIDATE_ALLOW) echo '<h3>'. lang('SIGNUP_VALIDATION_REMINDER', MAIL_VALIDATE) .'</h3>';
@@ -326,14 +327,14 @@ $racelist = array();
 foreach ($races as $rid => $rname)
 	$racelist[$rid] = $rname;
 echo optionlist('signup_race', $racelist, $race);
-?> <a href="?location=pguide&amp;section=races"><?php echo lang('SIGNUP_RACE_DETAILS'); ?></a></td></tr>
+?> <a href="?location=pguide&amp;section=races" class="button"><?php echo lang('SIGNUP_RACE_DETAILS'); ?></a></td></tr>
 <?php
 }
 ?>
 <tr><td colspan="2" class="ac"><input type="hidden" name="action" value="signup" /><input type="submit" value="<?php echo lang('SIGNUP_SUBMIT'); ?>" /></td></tr>
 </table>
 </form>
-</div>
+
 <b><?php echo lang('SIGNUP_WARN_RULES'); ?></b><br /><br />
 <table class="inputtable">
 <caption style="font-size:large;font-weight:bold"><?php echo lang('SIGNUP_HEADER_RULES'); ?></caption>

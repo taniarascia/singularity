@@ -13,12 +13,7 @@ $title = 'MAGIC_TITLE';
 if (($action == 'cast_friend') || ($action == 'cast_enemy'))
 	$lock['emp2'] = fixInputNum(getFormVar('magic_target'));
 
-page_header(); ?>
-
-<br/><img src="/images/magic.jpg" style="max-width: 550px;"/>
-<br/>
-
-<?php
+page_header();
 
 if (ROUND_FINISHED)
 	unavailable(lang('MAGIC_UNAVAILABLE_END'));

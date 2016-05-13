@@ -90,16 +90,13 @@ class prom_html_full extends prom_html
 <html xmlns="http://www.w3.org/1999/xhtml" lang="<?php echo lang('LANG_CODE'); ?>" xml:lang="<?php echo lang('LANG_CODE'); ?>" dir="<?php echo lang('LANG_DIR'); ?>">
 <head>
 <title><?php echo lang('HTML_TITLE', $title); ?></title>
-
 <link rel="stylesheet" type="text/css" href="css/<?php echo $this->getstyle(); ?>" />
-
 <?php
 		$this->addStyles();
 		$this->addScripts();
 ?>
 </head>
 <body>
-
 <div id="sidebar"><?php
 		$this->printMenuBar();
 ?></div>
@@ -113,7 +110,7 @@ class prom_html_full extends prom_html
 		$dur = microtime(TRUE) - $this->starttime;
 ?>
 <br /><?php echo lang('HTML_FOOTER', GAME_VERSION); ?>
-<a href="?location=credits"><?php echo lang('HTML_LINK_CREDITS'); ?></a>
+<br /><a href="?location=credits"><?php echo lang('HTML_LINK_CREDITS'); ?></a>
 <?php
 		if (DEBUG_FOOTER)
 			echo '<br /><br />'.lang('HTML_DEBUG_FOOTER', round($dur * 1000, 1), number(memory_get_usage()), number(memory_get_peak_usage()), $db ? $db->getQueryCount() : 0);
@@ -280,7 +277,6 @@ class prom_html_compact extends prom_html
 <html xmlns="http://www.w3.org/1999/xhtml" lang="<?php echo lang('LANG_CODE'); ?>" xml:lang="<?php echo lang('LANG_CODE'); ?>" dir="<?php echo lang('LANG_DIR'); ?>">
 <head>
 <title><?php echo lang('HTML_TITLE', $title); ?></title>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <link rel="stylesheet" type="text/css" href="css/<?php echo $this->getstyle(); ?>" />
 <?php
 		$this->addStyles();
@@ -316,8 +312,6 @@ class prom_html_compact extends prom_html
 		else	echo '<!-- '. $dur .', '. memory_get_usage() .'/'. memory_get_peak_usage() .', '. ($db ? $db->getQueryCount() : 0) .' -->';
 ?>
 </div>
-
-
 </body>
 </html>
 <?php

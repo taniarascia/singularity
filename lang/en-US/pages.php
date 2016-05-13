@@ -352,8 +352,8 @@ $lang['en-US'] += array(
 	'LOGIN_NO_EMPIRE'		=> 'You do not have an empire, and this game is currently not accepting new signups. Please check back later.',
 	'LOGIN_NO_EMPIRE_CLOSED'	=> 'You do not have an empire at this time, and creation of new empires is not enabled in this game.<br />See the Signup page for any instructions on how to have an empire created for yourself',
 	'LOGIN_VERSION'			=> 'QM v%1$s',
-	'LOGIN_DATE_RANGE'		=> '<b>Round One</b><br/>%1$s, 2016 - %2$s, 2016<br/>',
-	'LOGIN_COUNTER'			=> '%1$s',
+	'LOGIN_DATE_RANGE'		=> '%1$s - %2$s',
+	'LOGIN_COUNTER'			=> '%1$s Active Empires',
 	'LOGIN_SUBMIT'			=> 'Login',
 	'LOGIN_SIGNUP_CLOSED'		=> 'Signups Closed',
 	'LOGIN_SIGNUP'			=> 'Create Empire',
@@ -992,9 +992,9 @@ $lang['en-US'] += array(
 	'SIGNUP_HEADER'			=> '<i>Promisance</i>: Signup Form',
 	'SIGNUP_WELCOME_FIRST'		=> 'Welcome to %1$s!<br />'.
 						'Promisance is a turn-based strategy game in which your goal is to build the most powerful empire by whatever means necessary, whether through diplomacy or war. More information can be found in the game\'s <a href="?location=pguide">Guide</a>.<br />'.
-						'The first step to running your own empire is to sign up. By creating an empire, you will also be given a user account which you can reuse in later rounds in order to rank amongst the All Time Top Players.<br />'.
-						'When each round ends, the name of your user account will be shown next to your empire in Round History. %2$s',
-	'SIGNUP_WELCOME_DISCLOSE'	=> 'Until then, none will know who controls your empire as long as you remain alive.<br />Should your empire be destroyed or abandoned during the round, the Graveyard will make your name known to all.',
+						''.
+						'',
+	'SIGNUP_WELCOME_DISCLOSE'	=> '',
 	'SIGNUP_WELCOME_NO_DISCLOSE'	=> 'Until then, none will know who controls your empire.',
 	'SIGNUP_WELCOME_BACK'		=> 'Welcome back to %1$s! You must first create an empire before you may login.',
 	'SIGNUP_WARN_RULES'		=> 'The Administration reserves the right to delete any accounts not abiding by the rules.',
@@ -1020,15 +1020,15 @@ $lang['en-US'] += array(
 						'<li>A detailed description of the problem you are experiencing.</li></ol>'.
 						'Failure to include <b>all of the above</b> will likely result in your message being <b>ignored and deleted</b>.',
 	'SIGNUP_HEADER_EXTRA'		=> 'Additional Information',
-	'SIGNUP_VALIDATION_REMINDER'	=> 'A <i>validation code</i> will be sent to you via e-mail.<br />If necessary, add the address "%1$s" to your spam filter\'s whitelist.',
-	'SIGNUP_REPLAY_REMINDER'	=> 'If you have played here before, you may reuse the same account you created originally.<br />Simply enter your username and password, and leave the fields marked with "*" blank (values in these fields will be ignored).',
+	'SIGNUP_VALIDATION_REMINDER'	=> '',
+	'SIGNUP_REPLAY_REMINDER'	=> '',
 	'SIGNUP_USER_CLOSED_REMINDER'	=> 'In order to play here, you need to have a user account.<br />See the %1$s section above for any instructions on how to obtain a user account.',
 	'SIGNUP_EMPIRE_CLOSED_REMINDER'	=> 'Creation of new empires is not open to the public; however, you may still create a new user account - fields marked with "*" are required.<br />See the %1$s section above for any instructions on how to have an empire created for yourself.',
 	'SIGNUP_ACCOUNT_INFO'		=> 'Account Information',
 	'SIGNUP_LANGUAGE'		=> 'Language:',
 	'SIGNUP_PRIVACY'		=> 'Your e-mail address will remain strictly confidential.',
 	'SIGNUP_EMPIRE_INFO'		=> 'Empire Information',
-	'SIGNUP_RACE_DETAILS'		=> '[details]',
+	'SIGNUP_RACE_DETAILS'		=> 'Details',
 	'SIGNUP_SUBMIT'			=> 'Sign Up',
 
 	// pages/status

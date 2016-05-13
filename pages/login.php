@@ -141,7 +141,7 @@ else	$count_data = '<b>'. $num .'</b>';
 	html {
 		min-height: 100vh;
 		width: 100%;
-		background: #000 url(images/max2.jpg) no-repeat center center / cover;
+		background: #000 url(images/bg.jpg) no-repeat center center / cover;
 	}
 	[type=text], [type=password] {
 		background: transparent;
@@ -153,10 +153,10 @@ else	$count_data = '<b>'. $num .'</b>';
 <!--<h2><?php echo GAME_TITLE; ?></h2>-->
 <div class="container">
 	<h2> <?php echo GAME_TITLE; ?></h2>
-  <p><a href="http://animorphsforum.com/ebooks/covers/bk13.jpg">Be afraid . . .</a></p>
+  <p>Round 2 has begun!</p>
 <?php //echo lang('LOGIN_VERSION', GAME_VERSION); ?>
 <?php  echo lang('LOGIN_DATE_RANGE', gmdate('F j', $world->round_time_begin), gmdate('F j', $world->round_time_end)); ?><br />
-  <span style="font-size: 1.4rem; color: #2BCF4A;"><?php echo lang('LOGIN_COUNTER', $count_data); ?></span> Active Empires<br />
+  <span style="font-size: 1.4rem; color: #2BCF4A;"><?php echo lang('LOGIN_COUNTER', $count_data); ?></span><br />
 <?php
 notices(1);
 ?>

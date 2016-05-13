@@ -121,8 +121,6 @@ else
 		echo optionlist('setuser_id', $userlist, $emp1->e_id);
 ?> <input type="hidden" name="action" value="setuser" /><input type="submit" value="<?php echo lang('MAIN_SETUSER_SUBMIT'); ?>" /></div></form></td></tr>
 </table>
-
-
 <?php
 	}
 }
@@ -152,11 +150,6 @@ if ($world->turns_next > CUR_TIME)
 	$nextturn = $world->turns_next - CUR_TIME;
 else	$nextturn = 0;
 ?>
-<h3>Basic Summary</h3>
-<div style="max-width: 800px; margin: auto;">
-<p>Use turns to farm, cash, explore (gain land), or build. One turn is gained every ten minutes. The aim is to have the most powerful and valuable empire. After 200 turns, you're out of protection, and can attack/be attacked by other empires.</p>
-</div>
-<p>The best way to spend your first turns is by exploring to gain land, and building structures.</p>
 <b><?php echo $user1->customdate(CUR_TIME); ?></b><br />
 <?php echo lang('MAIN_TURN_RATE', plural(TURNS_COUNT, 'TURNS_SINGLE', 'TURNS_PLURAL'), duration(TURNS_FREQ * 60)); ?><br />
 <?php

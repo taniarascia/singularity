@@ -389,7 +389,7 @@ $lang['en-US'] += array(
 	'HEADER_LOGGED_IN_AS'		=> 'Currently logged in as user <span style="font-size:large">%1$s</span>, empire <span style="font-size:large">%2$s</span>',
 	'HEADER_GAME_NEWS'		=> '<b>Game News:</b>',
 	'HEADER_GUIDE'			=> 'Game Guide',
-	'HEADER_REFRESH'		=> '[Refresh]',
+	'HEADER_REFRESH'		=> 'Refresh',
 
 	'VACATION_NOT_LOCKED'		=> 'This empire was placed on vacation %1$s ago.<br />It will be frozen in %2$s.<br />',
 	'VACATION_LOCKED'		=> 'This empire is on vacation and has been frozen for %1$s.<br />',
@@ -416,7 +416,7 @@ $lang['en-US'] += array(
 	'HEADER_EMPIRE_DELETED'		=> 'Your empire has been marked for deletion. Thanks for playing!',
 
 	// includes/guide
-	'GUIDE_HEADER'			=> 'Singularity Guide',
+	'GUIDE_HEADER'			=> 'Promisance Guide',
 	'GUIDE_INTRO'			=> 'Getting Started',
 	'GUIDE_INFO'			=> 'Information',
 	'GUIDE_TURNS'			=> 'Spending Turns',
@@ -647,7 +647,7 @@ $lang['en-US'] += array(
 
 	// other
 	'HTML_TITLE'			=> 'Singularity - %1$s',
-	'HTML_FOOTER'			=> 'Singularity 2016! Copyright © 2001 <a href="http://www.qmtpro.com/">QMT Productions</a>',
+	'HTML_FOOTER'			=> 'Singularity 2016!<br />QMT Copyright © 2001-2014 <a href="http://www.qmtpro.com/">QMT Productions</a>',
 	'HTML_DEBUG_FOOTER'		=> 'Page generated in %1$sms using %2$s/%3$s bytes and %4$s queries',
 	'HTML_LINK_CREDITS'		=> 'View Credits',
 	'HTML_LINK_LOGIN'		=> 'Return to Login',
@@ -702,8 +702,8 @@ $lang['en-US'] += array(
 	'HTML_BUTTON_COPY'		=> '&gt;',
 	'STATBAR_NEWMAIL'		=> 'New Mail!',
 	'STATBAR_MAILBOX'		=> 'Mailbox',
-	'EMAIL_FROM'			=> 'Singularity Game',
-	'VALIDATION_EMAIL_SUBJECT'	=> 'Singularity Signup for %1$s - %2$s',
+	'EMAIL_FROM'			=> 'QM Promisance Web Game',
+	'VALIDATION_EMAIL_SUBJECT'	=> 'QM Promisance Signup for %1$s - %2$s',
 	'VALIDATION_EMAIL_BODY'		=> <<<END_MESSAGE
 Thank you for signing up for %1\$s!
 

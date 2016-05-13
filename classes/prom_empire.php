@@ -265,7 +265,7 @@ class prom_empire extends prom_entity
 <tr class="era<?php echo $this->e_era; ?>" style="font-size:medium">
     <td class="ac"><a href="?location=messages"><?php
 		if ($this->numNewMessages() > 0)
-			echo '<b style="color:#2BCF4A">'. lang('STATBAR_NEWMAIL') .'</b>';
+			echo '<b class="cgood">'. lang('STATBAR_NEWMAIL') .'</b>';
 		else	echo lang('STATBAR_MAILBOX');
 ?></a></td>
     <td class="ac"><?php echo label('ROW_TURNS', number($this->e_turns)); ?></td>

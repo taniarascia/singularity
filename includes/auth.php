@@ -293,7 +293,7 @@ function page_header ()
 
 	// Don't bother displaying guide/refresh links when already in the guide
 	if ($page != 'guide')
-		echo '<br /><a href="?location=guide&amp;section='. $page .'" class="button">'. lang('HEADER_GUIDE') .'</a> <br /><br />';
+		echo '<br /><a href="?location=guide&amp;section='. $page .'" class="button">'. lang('HEADER_GUIDE') .'</a>  <a href="?location='. $page .'" class="button">'. lang('HEADER_REFRESH') .'</a><br />';
 	else	echo '<br /><br />';
 
 	$emp1->printStatsBar();

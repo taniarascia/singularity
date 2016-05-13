@@ -10,12 +10,7 @@ if (!defined('IN_GAME'))
 
 $title = 'LOTTERY_TITLE';
 
-page_header(); ?>
-
-<br/><img src="/images/lottery.jpg" style="max-width: 550px;"/>
-<br/>
-
-<?php
+page_header();
 
 if (ROUND_FINISHED)
 	unavailable(lang('LOTTERY_UNAVAILABLE_END'));
