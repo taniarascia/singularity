@@ -150,8 +150,9 @@ if ($world->turns_next > CUR_TIME)
 	$nextturn = $world->turns_next - CUR_TIME;
 else	$nextturn = 0;
 ?>
+
+<div style="max-width: 600px; margin: auto;background: #101010;">
 <h3>Cheat Codes</h3>
-<div style="max-width: 800px; margin: auto;">
 	<p>Some important things to know.</p>
 	<p>Everything is mathematical; if it didn't work the first time, it probably won't work.<br />
 	Health is directly correlated to success in attacks. Higher health = higher chance of success.<br />
@@ -169,7 +170,7 @@ else	$nextturn = 0;
 	
 </div>
 <h3>Basic Summary</h3>
-<div style="max-width: 800px; margin: auto;">
+<div style="max-width: 600px; margin: auto;">
 <p>Use turns to farm, cash, explore (gain land), or build. One turn is gained every ten minutes. The aim is to have the most powerful and valuable empire. After 200 turns, you're out of protection, and can attack/be attacked by other empires.</p>
 </div>
 <p>The best way to spend your first turns is by exploring to gain land, and building structures.</p>
