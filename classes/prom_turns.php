@@ -497,9 +497,10 @@ class prom_turns
 		$this->statecho('Updating ranks');
 		$db->query('UPDATE '. EMPIRE_TABLE .' SET e_rank = 0 WHERE u_id = 0');
 		// If score tracking is enabled, rank players by their score instead of their networth
-		if (SCORE_ENABLE)
-			$q = $db->query('SELECT e_id FROM '. EMPIRE_TABLE .' WHERE u_id != 0 ORDER BY e_score DESC, e_networth DESC');
-		else	$q = $db->query('SELECT e_id FROM '. EMPIRE_TABLE .' WHERE u_id != 0 ORDER BY e_networth DESC');
+		//if (SCORE_ENABLE)
+		//	$q = $db->query('SELECT e_id FROM '. EMPIRE_TABLE .' WHERE u_id != 0 ORDER BY e_score DESC, e_networth DESC');
+		//else	
+		$q = $db->query('SELECT e_id FROM '. EMPIRE_TABLE .' WHERE u_id != 0 ORDER BY e_networth DESC');
 		$emps = $q->fetchAll();
 		$urank = 0;
 		$q = $db->prepare('UPDATE '. EMPIRE_TABLE .' SET e_rank = ? WHERE e_id = ?');
