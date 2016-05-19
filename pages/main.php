@@ -159,9 +159,11 @@ else	$nextturn = 0;
 <div style="max-width: 600px; margin: auto;background: #101010;padding:50px; text-align:left;">
 <h3>Cheat Codes</h3>
 	<p>Some important things to know.</p>
-	<p>Everything is mathematical; if it didn't work the first time, it probably won't work.<br />
-	Health is directly correlated to success in attacks. Higher health = higher chance of success.<br />
-		Advancing through time requires a 90% ratio or more of wizards to mage towers, with your magic stat factored in. <span class="mprotected">Wizards * ( 100 - Magic Stat ) / Mage Towers >= 90%</span></p>
+	<ul>
+		<li>Everything is mathematical; if it didn't work the first time, it probably won't work.</li>
+		<li>Health is directly correlated to success in attacks. Higher health = higher chance of success.</li>
+		<li>Advancing through time requires a 90% ratio or more of wizards to mage towers, with your magic stat factored in. <span class="mprotected">Wizards * ( 100 - Magic Stat ) / Mage Towers >= 90%</span></li>
+	</ul>
 	<h3>Networth</h3>
 	<p>Some rough networth calculations.</p>
 	<p class="mprotected">Army Unit = 1<br />
