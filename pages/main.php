@@ -156,7 +156,7 @@ else	$nextturn = 0;
 <p>The best way to spend your first turns is by exploring to gain land, and building structures.</p>
 </div>
 
-<div style="max-width: 600px; margin: auto;background: #101010;">
+<div style="max-width: 600px; margin: auto;background: #101010;padding:50px; text-align:left;">
 <h3>Cheat Codes</h3>
 	<p>Some important things to know.</p>
 	<p>Everything is mathematical; if it didn't work the first time, it probably won't work.<br />
