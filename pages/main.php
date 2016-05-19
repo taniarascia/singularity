@@ -150,6 +150,11 @@ if ($world->turns_next > CUR_TIME)
 	$nextturn = $world->turns_next - CUR_TIME;
 else	$nextturn = 0;
 ?>
+<h3>Basic Summary</h3>
+<div style="max-width: 600px; margin: auto;padding:15px;">
+<p>Use turns to farm, cash, explore (gain land), or build. One turn is gained every ten minutes. The aim is to have the most powerful and valuable empire. After 200 turns, you're out of protection, and can attack/be attacked by other empires.</p>
+<p>The best way to spend your first turns is by exploring to gain land, and building structures.</p>
+</div>
 
 <div style="max-width: 600px; margin: auto;background: #101010;">
 <h3>Cheat Codes</h3>
@@ -169,11 +174,8 @@ else	$nextturn = 0;
 		Empty Land = 100</p>
 	
 </div>
-<h3>Basic Summary</h3>
-<div style="max-width: 600px; margin: auto;">
-<p>Use turns to farm, cash, explore (gain land), or build. One turn is gained every ten minutes. The aim is to have the most powerful and valuable empire. After 200 turns, you're out of protection, and can attack/be attacked by other empires.</p>
-</div>
-<p>The best way to spend your first turns is by exploring to gain land, and building structures.</p>
+
+
 <b><?php echo $user1->customdate(CUR_TIME); ?></b><br />
 <?php echo lang('MAIN_TURN_RATE', plural(TURNS_COUNT, 'TURNS_SINGLE', 'TURNS_PLURAL'), duration(TURNS_FREQ * 60)); ?><br />
 <?php
