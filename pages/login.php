@@ -175,11 +175,11 @@ if (ROUND_SIGNUP && !(SIGNUP_CLOSED_USER && SIGNUP_CLOSED_EMPIRE))
 	echo '<a href="?location=signup" class="button"><b>'. lang('LOGIN_SIGNUP') .'</b></a> ';
 else	echo '<b>'. lang('LOGIN_SIGNUP_CLOSED') .'</b><br />';
 echo '<a href="?location=topempires" class="button"><b>'. lang('LOGIN_TOPEMPIRES') .'</b></a><br />';
-//if (CLAN_ENABLE)
-//	echo '<a href="?location=topclans" class="button"><b>'. lang('LOGIN_TOPCLANS') .'</b></a><br />';
-//echo '<br />';
+if (CLAN_ENABLE)
+	echo '<a href="?location=topclans" class="button"><b>'. lang('LOGIN_TOPCLANS') .'</b></a><br />';
+echo '<br />';
 echo '<a href="?location=topplayers" class="button"><b>'. lang('LOGIN_TOPPLAYERS') .'</b></a> ';
-// echo '<a href="?location=history" class="button"><b>'. lang('LOGIN_HISTORY') .'</b></a><br />';
+echo '<a href="?location=history" class="button"><b>'. lang('LOGIN_HISTORY') .'</b></a><br />';
 echo '<a href="?location=pguide" class="button"><b>'. lang('LOGIN_GUIDE') .'</b></a><br />';
 echo '<a href="forum" class="button"><b>'. lang('LOGIN_FORUM') .'</b></a><br /></div>';
 
