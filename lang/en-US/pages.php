@@ -351,7 +351,7 @@ $lang['en-US'] += array(
 	'LOGIN_USER_CLOSED'		=> 'Your user account has been closed either by request or due to inactivity.',
 	'LOGIN_NO_EMPIRE'		=> 'You do not have an empire, and this game is currently not accepting new signups. Please check back later.',
 	'LOGIN_NO_EMPIRE_CLOSED'	=> 'You do not have an empire at this time, and creation of new empires is not enabled in this game.<br />See the Signup page for any instructions on how to have an empire created for yourself',
-	'LOGIN_VERSION'			=> 'QM v%1$s',
+	'LOGIN_VERSION'			=> ' v%1$s',
 	'LOGIN_DATE_RANGE'		=> '%1$s - %2$s',
 	'LOGIN_COUNTER'			=> '%1$s Active Districts',
 	'LOGIN_SUBMIT'			=> 'Login',
@@ -361,8 +361,8 @@ $lang['en-US'] += array(
 	'LOGIN_TOPCLANS'		=> 'Top Factions',
 	'LOGIN_TOPPLAYERS'		=> 'All Time Top Players',
 	'LOGIN_HISTORY'			=> 'Round History',
-	'LOGIN_GUIDE'			=> 'Game Guide',
-	'LOGIN_FORUM'			=> 'Forum',
+	'LOGIN_GUIDE'			=> 'The Lost Guides',
+	'LOGIN_FORUM'			=> 'Fallout Shelter',
 
 	// pages/lottery
 	'LOTTERY_TITLE'			=> 'Lottery',
