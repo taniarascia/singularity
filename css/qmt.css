@@ -12,7 +12,7 @@
 html {
   color: rgba(255, 255, 255, .7);
   /*background: linear-gradient(#160927, #582768, #FBAB9E);*/
-  background: url(../images/bg3.jpg) no-repeat center center / cover;
+  background: url(../images/bg3.jpg) fixed center center / cover;
   font-size: 1rem;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   margin: 0;
@@ -144,7 +144,7 @@ th {
 }
 
 .menu ul li ul li a:hover {
-  background: #2C48AC;
+  background: #3F6045;
   /*linear-gradient(to left, #512DA8, #673AB7); #7A1DFF*/
   color: #fff;
 }
@@ -321,9 +321,9 @@ button {
   -webkit-appearance: none;
   display: inline-block;
   line-height: 1;
-  border: 3px solid #522AAE !important;
+  border: 3px solid #3F6045 !important;
   border-radius: 30px;
-  background: #522AAE !important;
+  background: #3F6045 !important;
   color: #fff;
   font-weight: bold;
   font-size: .8rem;
@@ -354,8 +354,8 @@ a.button:hover,
 button:active,
 button:focus,
 button:hover {
-  border: 3px solid #311968 !important;
-  background: #311968 !important;
+  border: 3px solid #2C4330 !important;
+  background: #2C4330 !important;
   color: #fff;
   text-decoration: none
 }
@@ -416,6 +416,6 @@ label {
 select:focus,
 textarea:focus {
   background: #121212;
-  border: 1px solid #522AAE;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1), 0 0 6px #522AAE;
+  border: 1px solid #3F6045;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1), 0 0 6px #3F6045;
 }
