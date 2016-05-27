@@ -141,11 +141,14 @@ else	$count_data = '<b>'. $num .'</b>';
 	html {
 		min-height: 100vh;
 		width: 100%;
-		background: #000 url(images/bg.jpg) no-repeat center center / cover;
+		background: #000 url(images/bg3.jpg) no-repeat center center / cover;
 	}
 	[type=text], [type=password] {
 		background: transparent;
 		border: 1px solid rgba(255,255,255,.5);
+	}
+	.button {
+		display: block !important;
 	}
 </style>
 
@@ -153,7 +156,7 @@ else	$count_data = '<b>'. $num .'</b>';
 <!--<h2><?php echo GAME_TITLE; ?></h2>-->
 <div class="container">
 	<h2> <?php echo GAME_TITLE; ?></h2>
-  <p>Round 2 has begun! Congratulations to Mercadia for a landslide victory in Round 1.</p>
+  <p>Round 3 has begun! The all-seeing eye of the Watchtower could not be defeated in Round 2. </p>
 <?php //echo lang('LOGIN_VERSION', GAME_VERSION); ?>
 <?php  echo lang('LOGIN_DATE_RANGE', gmdate('F j', $world->round_time_begin), gmdate('F j', $world->round_time_end)); ?><br />
   <span style="font-size: 1.4rem; color: #2BCF4A;"><?php echo lang('LOGIN_COUNTER', $count_data); ?></span><br />
@@ -169,19 +172,22 @@ notices(1);
 <input type="hidden" name="action" value="login" /><input type="submit" value="<?php echo lang('LOGIN_SUBMIT'); ?>" />
 </div>
 </form>
-</div>
+	</div>
+	
+	<div style="max-width: 300px; margin: 0 auto;">
+
 <?php
 if (ROUND_SIGNUP && !(SIGNUP_CLOSED_USER && SIGNUP_CLOSED_EMPIRE))
 	echo '<a href="?location=signup" class="button"><b>'. lang('LOGIN_SIGNUP') .'</b></a> ';
 else	echo '<b>'. lang('LOGIN_SIGNUP_CLOSED') .'</b><br />';
-echo '<a href="?location=topempires" class="button"><b>'. lang('LOGIN_TOPEMPIRES') .'</b></a><br />';
+echo '<a href="?location=topempires" class="button"><b>'. lang('LOGIN_TOPEMPIRES') .'</b></a>';
 if (CLAN_ENABLE)
-	echo '<a href="?location=topclans" class="button"><b>'. lang('LOGIN_TOPCLANS') .'</b></a><br />';
-echo '<br />';
+	echo '<a href="?location=topclans" class="button"><b>'. lang('LOGIN_TOPCLANS') .'</b></a>';
+echo '';
 echo '<a href="?location=topplayers" class="button"><b>'. lang('LOGIN_TOPPLAYERS') .'</b></a> ';
-echo '<a href="?location=history" class="button"><b>'. lang('LOGIN_HISTORY') .'</b></a><br />';
-echo '<a href="?location=pguide" class="button"><b>'. lang('LOGIN_GUIDE') .'</b></a><br />';
-echo '<a href="forum" class="button"><b>'. lang('LOGIN_FORUM') .'</b></a><br /></div>';
+echo '<a href="?location=history" class="button"><b>'. lang('LOGIN_HISTORY') .'</b></a>';
+echo '<a href="?location=pguide" class="button"><b>'. lang('LOGIN_GUIDE') .'</b></a>';
+echo '<a href="forum" class="button"><b>'. lang('LOGIN_FORUM') .'</b></a><br /></div></div>';
 
 $html->end();
 
