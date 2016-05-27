@@ -117,15 +117,15 @@ $lang['en-US'] += array(
 	'ERA_UNKNOWN'			=> 'Unknown',
 
 	// Race names
-	'RACE_HUMAN'			=> 'Human',
-	'RACE_ELF'			=> 'Elf',
-	'RACE_DWARF'			=> 'Dwarf',
-	'RACE_TROLL'			=> 'Troll',
-	'RACE_GNOME'			=> 'Gnome',
-	'RACE_GREMLIN'			=> 'Gremlin',
-	'RACE_ORC'			=> 'Orc',
-	'RACE_DROW'			=> 'Drow',
-	'RACE_GOBLIN'			=> 'Goblin',
+	'RACE_HUMAN'			=> 'Survivor',
+	'RACE_ELF'			=> 'Morlock',
+	'RACE_DWARF'			=> 'Mutant',
+	'RACE_TROLL'			=> 'Zombie',
+	'RACE_GNOME'			=> 'Beast',
+	'RACE_GREMLIN'			=> 'Renegade',
+	'RACE_ORC'			=> 'Cyborg',
+	'RACE_DROW'			=> 'Moleperson',
+	'RACE_GOBLIN'			=> 'Werewolf',
 	'RACE_UNKNOWN'			=> 'Unknown',
 
 	// Faction "none" name
