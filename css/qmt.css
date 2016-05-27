@@ -85,6 +85,8 @@ th {
   text-align: left;
   margin-left: 10%;
   margin-right: 10%;
+	padding: 25px;
+	background: rgba(0,0,0,.8);
 }
 
 .guide dt {
